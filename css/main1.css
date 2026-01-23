@@ -589,7 +589,7 @@ border-left: 1px ridge #ffffff00;
 }
 
 .transaction-table td {
-  padding: 12px 12px;
+  padding: 12px 45px;
   border-bottom: 1px solid #e5e9f0;
   color: #0b1c2d;
 }
@@ -686,5 +686,6 @@ border-left: 1px ridge #ffffff00;
   margin: 0;
   opacity: 0.85;
 }
+
 
 
