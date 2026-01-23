@@ -342,7 +342,7 @@ body.sidebar-open .app-content {
 .balance-card__amount {
   margin-top: 15px;
   font-size: 70px;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 1.5px;
 }
 
@@ -681,3 +681,4 @@ border-left: 1px ridge #ffffff00;
   margin: 0;
   opacity: 0.85;
 }
+
