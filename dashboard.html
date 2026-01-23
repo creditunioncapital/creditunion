@@ -35,11 +35,18 @@
   <!-- SIDEBAR -->
   <aside class="app-sidebar">
     <div class="app-sidebar__user">
-      <div>
-        <p class="app-sidebar__user-name">Hi Monika</p>
-        <p class="app-sidebar__user-designation">Welcome back</p>
-      </div>
-    </div>
+  <img
+    src="img/profile.jpeg"
+    alt="User profile picture"
+    class="app-sidebar__user-avatar"
+  />
+
+  <div>
+    <p class="app-sidebar__user-name">Hi Monika</p>
+    <p class="app-sidebar__user-designation">Welcome back</p>
+  </div>
+</div>
+
 
     <ul class="app-menu">
       <li>
@@ -124,23 +131,7 @@
 
   <!-- MAIN CONTENT -->
   <main class="app-content">
-
-   
-<div class="dashboard-card1 account-overview">
-
-  <!-- USER PROFILE HEADER -->
-  <div class="account-profile">
-    <img
-      src="img/profilepix.jpeg"
-      alt="User Profile"
-      class="account-profile__avatar"
-    />
-
-    <div class="account-profile__info">
-      <h3 class="account-profile__name">Monika Fischer</h3>
-    </div>
-  </div>
-
+    
   <div class="dashboard-card balance-card balance-card--hidden">
   <div class="balance-card__header">
     <p class="balance-card__label">Available Balance</p>
@@ -158,15 +149,33 @@
 
   </div>
 
-  <p class="balance-card__amount balance-card__amount--hidden">
+  <p class="balance-card__amount balance-card__amount--hidden" style="font-size: 32px;">
     ••••••••
   </p>
 </div>
 
 
+   
+<div class="dashboard-card1 account-overview">
+
+  <!-- USER PROFILE HEADER -->
+  <div class="account-profile">
+    
+
+    <div class="account-profile__info">
+      <h3 class="account-profile__name">Account Overview</h3>
+    </div>
+  </div>
+
+
+
   <!-- ACCOUNT OVERVIEW TABLE -->
   <table class="overview-table">
   
+    <tr>
+      <td class="label">Account Name</td>
+      <td class="value">Monika Fischer</td>
+    </tr> 
     <tr>
       <td class="label">Account Number</td>
       <td class="value">6993413189</td>
@@ -207,7 +216,7 @@
   <h3 id="ai-ad-title">Personalized Offer</h3>
   <p id="ai-ad-message"></p>
 
-  <a href="loans.html" class="ai-ad__btn" id="ai-ad-btn">
+  <a href="#" class="ai-ad__btn" id="ai-ad-btn">
     Learn More
   </a>
 </div>
@@ -232,7 +241,6 @@
         <td>23 Jan</td>
         <td>Money Added</td>
         <td><span class="badge credit">Credit</span></td>
-        
         <td class="amount">+7000</td>
       </tr>
 
@@ -240,7 +248,6 @@
         <td>22 Jan</td>
         <td>Money Added</td>
         <td><span class="badge credit">Credit</span></td>
-        
         <td class="amount">+3322</td>
       </tr>
 
@@ -248,7 +255,6 @@
         <td>21 Jan</td>
         <td>Local Transfer</td>
         <td><span class="badge debit">Debit</span></td>
-        
         <td class="amount">-20000</td>
       </tr>
 
@@ -256,7 +262,6 @@
         <td>20 Jan</td>
         <td>Money Added</td>
         <td><span class="badge credit">Credit</span></td>
-        
         <td class="amount">+4400</td>
       </tr>
 
@@ -264,7 +269,6 @@
         <td>19 Jan</td>
         <td>Money Added</td>
         <td><span class="badge credit">Credit</span></td>
-        
         <td class="amount">+3000</td>
       </tr>
     </tbody>
@@ -286,5 +290,3 @@
   <script src="js/script1.js"></script>
 </body>
 </html>
-
-
