@@ -1,0 +1,683 @@
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  background: #007d812c;
+  overflow-x: hidden;
+}
+
+/* =========================
+   HEADER
+========================= */
+.app-header {
+  height: 60px;
+  background: #007d81;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  color: #fff;
+  gap: 12px;
+}
+
+.app-sidebar__toggle {
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.app-header__logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+ 
+
+}
+/* =========================
+   HEADER LOGO
+========================= */
+
+.app-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+  text-decoration: none;
+   margin-left: auto;
+}
+
+.app-header__logo-img {
+  height: 75px;
+  width: auto;
+}
+
+.app-header__logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+.app-sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  background: #070a0f;
+  overflow-y: auto;
+  transform: translateX(-240px);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+}
+
+body.sidebar-open .app-sidebar {
+  transform: translateX(0);
+}
+
+/* =========================
+   SIDEBAR USER
+========================= */
+.app-sidebar__user {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.app-sidebar__user-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.app-sidebar__user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.app-sidebar__user-designation {
+  font-size: 12px;
+  color: #b0c4d4;
+}
+
+/* =========================
+   MENU
+========================= */
+.app-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.app-menu__item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.app-menu__item:hover,
+.app-menu__item.active {
+  background: #0b1c2d;
+}
+
+/* ICON */
+.app-menu__icon {
+  width: 20px;
+  margin-right: 30px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* LABEL */
+.app-menu__label {
+  flex: 1;
+  font-size: 14px;
+}
+
+/* TREEVIEW INDICATOR */
+.treeview-indicator {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when open */
+.treeview.is-expanded .treeview-indicator {
+  transform: rotate(90deg);
+}
+
+/* =========================
+   TREEVIEW MENU
+========================= */
+.treeview-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  background: #0e1218;
+}
+
+.treeview.is-expanded .treeview-menu {
+  display: block;
+}
+
+.treeview-item {
+  display: block;
+  padding: 10px 20px 10px 52px;
+  color: #cfdce6;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.treeview-item:hover {
+  background: #0b1c2d;
+  color: #fff;
+}
+
+/* =========================
+   CONTENT (PUSHED, NOT OVERLAY)
+========================= */
+.app-content {
+  padding: 20px;
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+
+body.sidebar-open .app-content {
+  transform: translateX(240px);
+}
+
+/* =========================
+   DASHBOARD ELEMENTS
+========================= */
+.dashboard-card2 {
+  background: linear-gradient(135deg, #20c6e42c, #007d8107);
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 4px 0px #007d81;
+}
+.dashboard-card1 {
+  background: linear-gradient(135deg, #ffffff, #91ffe762);
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  outline: 1px solid #007d8133;
+}
+.dashboard-card {
+  background: linear-gradient(135deg, #ffffff, #007d8107);
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  
+}
+.dashboard-card3 {
+  background: linear-gradient(135deg, #ffffff49, #ffffff65);
+  padding: 20px;
+  border-radius: 0px;
+  margin-bottom: 50px;
+  border-bottom: 1px groove #00a2c2;
+  
+}
+
+
+.balance {
+  font-size: 28px;
+  font-weight: bold;
+  color: #0b1c2d;
+}
+
+/* =========================
+   ACCOUNT OVERVIEW TABLE
+========================= */
+
+.account-overview h3 {
+  margin-bottom: 1px;
+  font-size: 20px;
+  color: #0b1c2d;
+}
+
+.overview-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.overview-table td {
+  padding: 12px 10px;
+  font-size: 14px;
+  border-bottom: 1px solid #0089a14b;
+}
+
+.overview-table tr:last-child td {
+  border-bottom: none;
+}
+
+.overview-table .label {
+  width: 40%;
+  color: #6b7c93;
+  font-weight: 600;
+}
+
+.overview-table .value {
+  color: #0b1c2d;
+  font-weight: 500;
+}
+
+.overview-table .balance {
+  color: #007d81;
+  font-weight: 700;
+  font-size: 16px;
+}
+/* =========================
+   ACCOUNT PROFILE HEADER
+========================= */
+
+.account-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.account-profile__avatar {  
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #007d81ce;
+}
+
+.account-profile__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-profile__name {
+  margin: 2px;
+  font-size: 30px;
+  font-weight: 700;
+  color: #0b1c2d;
+}
+
+.account-profile__meta {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #6b7c93;
+}
+/* =========================
+   BALANCE CARD
+========================= */
+
+.balance-card {
+  background: linear-gradient(135deg, #007d81, #0b5c5f);
+  color: #ffffff;
+  text-align: center;
+}
+
+.balance-card__label {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+
+.balance-card__amount {
+  margin-top: 15px;
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* =========================
+   BALANCE DELAY ANIMATION
+========================= */
+
+.balance-card {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.balance-card--hidden {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.balance-card--show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* =========================
+   BALANCE EYE TOGGLE
+========================= */
+
+.balance-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.balance-card__toggle {
+  fill: #ffffff;
+  cursor: pointer;
+  font-size: 18px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.balance-card__toggle:hover {
+  opacity: 0.85;
+}
+
+.balance-card__toggle:active {
+  transform: scale(0.95);
+}
+
+
+.balance-card__amount {
+  margin-top: 12px;
+  font-size: 45px;
+  font-weight: 500px;
+  letter-spacing: 1px;
+}
+
+/* Hidden balance state */
+.balance-card__amount--hidden {
+  filter: blur(0px);
+  user-select: none;
+}
+
+/* Visible balance state */
+.balance-card__amount--visible {
+  filter: blur(0);
+}
+.eye-icon {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+}
+/* =========================
+   TWO-CARD GRID SECTION
+========================= */
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Card titles */
+.dashboard-card h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #0b1c2d;
+}
+
+/* Simple button */
+.btn-primary {
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: #007d81;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #00666a;
+}
+/* =========================
+   CARD LOAD ANIMATION
+========================= */
+
+.dashboard-card {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.dashboard-card.card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* =========================
+   AI ADVERT CARD
+========================= */
+
+.ai-ad {
+  border-left: 4px solid #007d81;
+  background: #ffffff;
+}
+
+.ai-ad h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #0b1c2d;
+}
+
+.ai-ad p {
+  font-size: 14px;
+  color: #4a5d73;
+  margin-bottom: 0;
+}
+
+.ai-ad2 h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #02090f;
+}
+
+.ai-ad2 p {
+  font-size: 14px;
+  color: #004152;
+  margin-bottom: 10px;
+}
+/* =========================
+   AI AD CARD – ENHANCED
+========================= */
+
+.ai-ad {
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid #007d81;
+  background: linear-gradient(135deg, #ffffff, #f7fbfb);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ai-ad2 {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #018a7f46, #f7fbfb);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border-top: 1px inset #ffffff00;
+border-right: 1px solid #00a2c2;
+border-bottom: 1px groove #00a2c2;
+border-left: 1px ridge #ffffff00;
+}
+
+
+/* Slight lift on hover */
+.ai-ad:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* AI accent pulse */
+.ai-ad::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #007d81;
+  animation: aiPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes aiPulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+/* Text fade-in */
+.ai-ad h3,
+.ai-ad p {
+  opacity: 0;
+  transform: translateY(6px);
+  animation: aiTextIn 0.6s ease forwards;
+}
+
+.ai-ad p {
+  animation-delay: 0.15s;
+}
+
+@keyframes aiTextIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* =========================
+   TRANSACTION HISTORY
+========================= */
+
+.transaction-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #0b1c2d;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.transaction-table thead {
+  background: #017e83;
+}
+
+.transaction-table th {
+  text-align: left;
+  padding: 10px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.transaction-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #e5e9f0;
+  color: #0b1c2d;
+}
+
+.transaction-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Amount column alignment */
+.amount-col,
+.amount {
+  text-align: left;
+  font-weight: 600;
+}
+
+/* Credit / Debit colors */
+.transaction-table tr.credit .amount {
+  color: #1e8e3e; /* green */
+}
+
+.transaction-table tr.debit .amount {
+  color: #c62828; /* red */
+}
+
+/* Subtle row hover */
+.transaction-table tbody tr:hover {
+  background: #f7fbfb62;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.badge.credit {
+  background: #e6f4ea;
+  color: #1e8e3e;
+}
+
+.badge.debit {
+  background: #fdecea;
+  color: #c62828;
+}
+
+/* =========================
+   AI AD BUTTON
+========================= */
+
+.ai-ad__btn {
+  margin-top: 100px;
+  padding: 10px 18px;
+  background: #007d81;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.ai-ad__btn:hover {
+  background: #00666a;
+  transform: translateY(-1px);
+}
+
+.ai-ad__btn:active {
+  transform: translateY(0);
+}
+
+/* Ensure link buttons look like real buttons */
+.ai-ad__btn {
+  display: inline-block;
+  text-decoration: none;   /* removes underline */
+  text-align: center;
+  appearance: none;
+}
+/* =========================
+   FOOTER
+========================= */
+
+.app-footer {
+  margin-top: 30px;
+  padding: 16px 20px;
+  background: #00666a;
+  color: #ffffff;
+  text-align: center;
+  font-size: 13px;
+}
+
+.app-footer p {
+  margin: 0;
+  opacity: 0.85;
+}
