@@ -89,19 +89,21 @@ body.sidebar-open .app-sidebar {
 /* =========================
    SIDEBAR USER
 ========================= */
+
+
 .app-sidebar__user {
-  padding: 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  gap: 12px;
+  padding: 12px 20px;
 }
 
 .app-sidebar__user-avatar {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid #028680;
 }
 
 .app-sidebar__user-name {
@@ -136,12 +138,12 @@ body.sidebar-open .app-sidebar {
 
 .app-menu__item:hover,
 .app-menu__item.active {
-  background: #0b1c2d;
+  background: #00767a;
 }
 
 /* ICON */
 .app-menu__icon {
-  width: 20px;
+  width: 30px;
   margin-right: 30px;
   text-align: center;
   font-size: 14px;
@@ -327,9 +329,12 @@ body.sidebar-open .app-content {
 ========================= */
 
 .balance-card {
-  background: linear-gradient(135deg, #007d81, #0b5c5f);
+  background: linear-gradient(135deg, #007d81, #084547);
   color: #ffffff;
   text-align: center;
+    font-size: 50px;
+
+  box-shadow: 5px 5px 24px 0px #0177698f;
 }
 
 .balance-card__label {
@@ -340,9 +345,9 @@ body.sidebar-open .app-content {
 
 
 .balance-card__amount {
-  margin-top: 15px;
-  font-size: 45px;
-  font-weight: 400;
+  margin-top: 20px;
+  font-size: 50px;
+  font-weight: 300px;
   letter-spacing: 1px;
 }
 
@@ -392,7 +397,7 @@ body.sidebar-open .app-content {
 .balance-card__amount {
   margin-top: 12px;
   font-size: 45px;
-  font-weight: 400px;
+  font-weight: 500px;
   letter-spacing: 1px;
 }
 
@@ -400,7 +405,6 @@ body.sidebar-open .app-content {
 .balance-card__amount--hidden {
   filter: blur(0px);
   user-select: none;
-  font-weight: 400px;
 }
 
 /* Visible balance state */
@@ -570,7 +574,7 @@ border-left: 1px ridge #ffffff00;
 .transaction-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .transaction-table thead {
@@ -579,13 +583,13 @@ border-left: 1px ridge #ffffff00;
 
 .transaction-table th {
   text-align: left;
-  padding: 10px;
+  padding: 15px;
   color: #ffffff;
   font-weight: 600;
 }
 
 .transaction-table td {
-  padding: 12px 10px;
+  padding: 12px 25px;
   border-bottom: 1px solid #e5e9f0;
   color: #0b1c2d;
 }
@@ -618,7 +622,7 @@ border-left: 1px ridge #ffffff00;
 .badge {
   padding: 4px 8px;
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -643,7 +647,7 @@ border-left: 1px ridge #ffffff00;
   color: #ffffff;
   border: none;
   border-radius: 4px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
@@ -682,6 +686,4 @@ border-left: 1px ridge #ffffff00;
   margin: 0;
   opacity: 0.85;
 }
-
-
 
