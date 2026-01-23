@@ -400,6 +400,7 @@ body.sidebar-open .app-content {
 .balance-card__amount--hidden {
   filter: blur(0px);
   user-select: none;
+  font-weight: 500px;
 }
 
 /* Visible balance state */
@@ -681,4 +682,5 @@ border-left: 1px ridge #ffffff00;
   margin: 0;
   opacity: 0.85;
 }
+
 
