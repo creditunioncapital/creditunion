@@ -1,645 +1,293 @@
- 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-	
-        <title>Dashboard</title>
+<head>
+  <meta charset="UTF-8">
+  <title>Monika Fischer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/main1.css">
+</head>
+<body class="app sidebar-mini">
+
+  <!-- HEADER -->
+<header class="app-header">
+  <span class="app-sidebar__toggle" aria-label="Toggle sidebar">
+    ☰
+  </span>
+
+  <a href="dashboard.html" class="app-header__logo">
+    <img
+      src="img/logoo.png"
+      alt="Bank Logo"
+      class="app-header__logo-img"
+    />
+  </a>
+</header>
+
+
+  <!-- SIDEBAR -->
+  <aside class="app-sidebar">
+    <div class="app-sidebar__user">
+      <div>
+        <p class="app-sidebar__user-name">Hi Monika</p>
+        <p class="app-sidebar__user-designation">Welcome back</p>
+      </div>
+    </div>
+
+    <ul class="app-menu">
+      <li>
+        <a class="app-menu__item active" href="dashboard.html">
+          <i class="app-menu__icon fas fa-home"></i>
+          <span class="app-menu__label">Dashboard</span>
+        </a>
+      </li>
+
+      <li class="treeview">
+        <a class="app-menu__item" href="#">
+          <i class="app-menu__icon fas fa-wallet"></i>
+          <span class="app-menu__label">Accounts</span>
+          <i class="treeview-indicator fas fa-angle-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" href="profile.html">Profile</a></li>
+          <li><a class="treeview-item" href="statement.html">Statement</a></li>
+          <li><a class="treeview-item" href="#">KYC</a></li>
+                    <li><a class="treeview-item" href="#">Change Password</a></li>
+          <li><a class="treeview-item" href="#">Change Pin</a></li>
+          <li><a class="treeview-item" href="#">Activity Log</a></li>
+
         
-		<meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">                  
-		
-        <link rel="icon" href='img/union.png'>
-		<link rel="stylesheet" href="/css/dataTables.min.css">
-        <link rel="stylesheet" type="text/css" href="/css/main.css">
-        <link rel="stylesheet" type="text/css" href="/css/widgets.css">
-        <link rel="stylesheet" type="text/css" href="/css/defaults.css">
-        <link rel="stylesheet" type="text/css" href="/css/style.css">
-        <link rel="stylesheet" href="/css/font-awesome-5.8.2.css">
-		<link rel="stylesheet" type="text/css" href="/css/widgets-line.css">
+        </ul>
+      </li>
 
+      <li class="treeview">
+        <a class="app-menu__item" href="#">
+          <i class="app-menu__icon fas fa-exchange-alt"></i>
+          <span class="app-menu__label">Transfers</span>
+          <i class="treeview-indicator fas fa-angle-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" href="local.html">Domestic</a></li>
+          <li><a class="treeview-item" href="international.html">International</a></li>
+          <li><a class="treeview-item" href="activity.html">History</a></li>
 
-    </head>
-    <body class="app sidebar-mini ">
-       
-					
-			<header class="app-header">
-				<a class="app-header__logo" href="dashboard.html">
-					<img src='#' height='40px'>
-				</a>
-				<!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
-				<!-- Navbar Right Menu-->
-				<ul class="app-nav">
-					<!--Notification Menu-->
-					<li class="dropdown">
-						<div id="google_translate_element" style="margin-left:2%"></div>
-						<script type="text/javascript">
-							function googleTranslateElementInit() {
-							  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement, autoDisplay: false}, 'google_translate_element');
-							}
-						</script>
-						<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-					</li>
-							<!-- User Menu-->
-							<li class="dropdown">
-								<a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
-								<ul class="dropdown-menu settings-menu dropdown-menu-right">
-									<li><a class="dropdown-item" href="profile.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-									<li><a class="dropdown-item" href="cpassword.html"><i class="fa fa-key fa-lg"></i> Password</a></li>
-									<li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a></li>
-								</ul>
-							</li>
-						</ul>
-					</header>
-					
-								
-					<!-- Sidebar menu-->
-					<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
-					<aside class="app-sidebar">
-					
-						<div class="app-sidebar__user d-block text-center">
-							
-		<img class="app-sidebar__user-avatar oval-pic" src="img/d283b24a77c83302c916412dc0e094c8.jpeg" alt="User Image">
+        </ul>
+      </li>
 
-							<div class='mt-2'>
-								
-		<p class="app-sidebar__user-name">Monika Fischer</p>
+      <li class="treeview">
+        <a class="app-menu__item" href="#">
+          <i class="app-menu__icon fas fa-exchange-alt"></i>
+          <span class="app-menu__label">Monetary</span>
+          <i class="treeview-indicator fas fa-angle-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" href="#">Digital Deposit</a></li>
+          <li><a class="treeview-item" href="#">Cards</a></li>
 
-								<p class="app-sidebar__user-designation d-none"></p>
-							</div>
-						</div>
-						
-						<ul class="app-menu">
-						
-							<li>
-								<a class="app-menu__item" href="dashboard.html">
-									<i class="app-menu__icon fas fa-home"></i>
-									<span class="app-menu__label">Dashboard</span>
-								</a>
-							</li>
-							
-												<li>
-								<a href="kyc.html" class="treeview-item text-white d-block brand-text">
-									You have not yet verified you KYC. Click now to submit your details
-								</a>
-							</li>
-											
-							<li class="treeview">
-								<a class="app-menu__item" href="#" data-toggle="treeview">
-									<i class="app-menu__icon fa fa-users"></i>
-									<span class="app-menu__label">My Account</span>
-									<i class="treeview-indicator fa fa-angle-right"></i>
-								</a>
-								<ul class="treeview-menu">
-									<li><a class="treeview-item" href="profile.html">Profile</a></li>
-									<li><a class="treeview-item" href="statement.html">Statements</a></li>
-									<li><a class="treeview-item" href="kyc.html">KYC</a></li>
-									<li><a class="treeview-item" href="cpassword.html">Change Password</a></li>
-									<li><a class="treeview-item" href="cpin.html">Change Pin</a></li>
-									<li><a class="treeview-item" href="activity.html">Activity Log</a></li>
-								</ul>
-							</li>
-						
-							<li class="treeview">
-								<a class="app-menu__item" href="#" data-toggle="treeview">
-									<i class="app-menu__icon fa fa-paper-plane"></i>
-									<span class="app-menu__label">Transfer</span>
-									<i class="treeview-indicator fa fa-angle-right"></i>
-								</a>
-								<ul class="treeview-menu">
-									<li><a class="treeview-item" href="local.html">Domestic</a></li>
-									<li><a class="treeview-item" href="international.html">International</a></li>
-									<li><a class="treeview-item" href="payment.html">History</a></li>
-								</ul>
-							</li>
-						
-							<li class="treeview">
-								<a class="app-menu__item" href="#" data-toggle="treeview">
-									<i class="app-menu__icon fa fa-landmark"></i>
-									<span class="app-menu__label">Monetary</span>
-									<i class="treeview-indicator fa fa-angle-right"></i>
-								</a>
-								<ul class="treeview-menu">
-									<li><a class="treeview-item" href="#">Digital Deposit</a></li>
-									<li><a class="treeview-item" href="#">Cards</a></li>
-								</ul>
-							</li>
-						
-							<li class="treeview"></li>
-								<a class="app-menu__item" href="#" data-toggle="treeview">
-									<i class="app-menu__icon fa fa-users"></i>
-									<span class="app-menu__label">Loan</span>
-									<i class="treeview-indicator fa fa-angle-right"></i>
-								</a>
-								<ul class="treeview-menu">
-									<li><a class="treeview-item" href="loan.html">Loan Application</a></li>
-									<li><a class="treeview-item" href="sloan.html">Loan Status</a></li>
-								</ul>
-							</li>
-						
-							<li class="treeview">
-								<a class="app-menu__item" href="#" data-toggle="treeview">
-									<i class="app-menu__icon fa fa-check-double"></i>
-									<span class="app-menu__label">Support</span>
-									<i class="treeview-indicator fa fa-angle-right"></i>
-								</a>
-								<ul class="treeview-menu">
-									<li><a class="treeview-item" href="faq.html">FAQ</a></li>
-									<li><a class="treeview-item" href="message.html">Message</a></li>
-								</ul>
-							</li>
-							
-							<li>
-								<a class="app-menu__item" href="index.html">
-									<i class="app-menu__icon fa fa-user"></i>
-									<span class="app-menu__label">Logout</span>
-								</a>
-							</li>
-						</ul>
-					</aside>		
-					
-					<main class="app-content">
-			
-		
+        </ul>
+      </li>
+      
+      <li>
+        <a class="app-menu__item" href="#">
+          <i class="app-menu__icon fas fa-sign-out-alt"></i>
+          <span class="app-menu__label">Loans</span>
+        </a>
+      </li>
+      <li class="treeview">
+        <a class="app-menu__item" href="#">
+          <i class="app-menu__icon fas fa-exchange-alt"></i>
+          <span class="app-menu__label">Support</span>
+          <i class="treeview-indicator fas fa-angle-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li><a class="treeview-item" href="#">FAQs</a></li>
+          <li><a class="treeview-item" href="#">Message</a></li>
 
-	
-	<div class="app-title d-block">
-		<div>
-				
-		<div class='row'>
-			<div class="col-md-12 col-lg-12 col-sm-12 col-sx-12">
-				<div class="box box-default">
+        </ul>
+      </li>
 
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<div class="user-profile-wrap shadow-reset">
-								<div class="row">
+      <li>
+        <a class="app-menu__item" href="#">
+          <i class="app-menu__icon fas fa-sign-out-alt"></i>
+          <span class="app-menu__label">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </aside>
 
-									<div class="col-lg-6">
-										<div class="row">
-											<!-- EXCHANGERATES.ORG.UK LIVE CURRENCY RATES TICKER START -->
-											<iframe src="//www.exchangerates.org.uk/widget/ER-LRTICKER.php?w=490&s=1&mc=GBP&mbg=F0F0F0&bs=no&bc=000044&f=verdana&fs=10px&fc=000044&lc=000044&lhc=FE9A00&vc=FE9A00&vc
-											u=008000&vcd=FF0000&" width="100%" height="50" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"></iframe>
-											<!-- EXCHANGERATES.ORG.UK LIVE CURRENCY RATES TICKER END -->
-
-											<div class="col-lg-3"></div>
-											
-											<div class="col-lg-9">
-												<div class="user-profile-content">
-													<button class="btn btn-info"> <h5>ACCOUNT OVERVIEW</h5></button>
-													</br></br>
-
-													<h5>
-														<img src="img/d283b24a77c83302c916412dc0e094c8.jpeg" class="oval-pic" alt="" /> 
-														Monika Fischer													</h5>
-
-													<p class="profile-des"></p>
-												</div>
-											</div>
-										</div>
-									</div>
-									
-									<div class="col-lg-3">
-										<div class="user-profile-social-list">
-											<table class="table small m-b-xs">
-												<tbody>
-													<tr>
-														<td>
-															<strong>Account Name</strong>
-														</td>
-														<td>
-															<strong>Monika Fischer</strong>
-														</td>
-
-													</tr>
-													<tr>
-														<td>
-															<strong>Account Type</strong>
-														</td>
-														<td>
-															<strong>Fixed Deposit Account</strong>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<strong>Account Number</strong> 
-														</td>
-														<td>
-															<strong>6993413189</strong>
-														</td>
-													</tr>
-
-
-													 <tr>
-														<td>
-															<strong>Routing Number</strong> 
-														</td>
-														<td>
-															<strong>121000385</strong>
-														</td>
-													</tr>
-
-													 <tr>
-														<td>
-															<strong>SSN</strong> 
-														</td>
-														<td>
-															<strong>573679026</strong>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-									
-									<div class="col-lg-3">
-										<div class="analytics-sparkle-line user-profile-sparkline">
-											<div class="analytics-content">
-												<h5>Balance</h5>
-												<button class="btn btn-info"> 
-													<h6>
-														$ 551,250.00													</h6>
-												</button>
-												<div id="sparkline22"></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-			</div>	
-		</div>
-
-			</div>
-	</div>
-
-
+  <!-- MAIN CONTENT -->
+  <main class="app-content">
 
    
-		
-			<div class="sparkline12-hd mb-2">
-			<div class="main-sparkline12-hd">
-				
-									<div class="sparkline12-outline-icon">
-						<button class="btn btn-danger">Login Details</button>
-					</div>
-							</div>
-		</div>
-		
-	<div class="sparkline12-graph">
-		<div id="pwd-container1">
-			<div class="form-group">
-				<div class="clearfix offers not-refused-offers">
-				  
-					<div id="offer-galojan" style="background-image: url(&#39;/public/images/default-banner.png&#39;);" class="offer loan-offer loan-offer-approved">
-						<div class="offer-actions">
-							<a class="offer-action" data-ga-event="pre-approved-loan" data-ga-action="start">
-								<object type="nested/links">
-									<span class="offer-text">
-										<h6>
-											<p class='mb-1'>You have logged in from IP: 102.89.82.145</p> 
-											<p>You log in at: 01:05 AM 08 Jan 2026</p>
-										</h6>
-									</span>
-								</object>
-							</a>
-						</div>
-					</div>	  
-					
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="dashboard-card1 account-overview">
 
-			<div class="sparkline12-hd mb-2">
-			<div class="main-sparkline12-hd">
-				
-									<div class="sparkline12-outline-icon">
-						<button class="btn btn-danger">Newsletter</button>
-					</div>
-							</div>
-		</div>
-	
-	<div class="sparkline12-graph">
-		<div id="pwd-container1">
-			<div class="form-group bg-light p-3 mt-2 rounded-2">
-				<div id="offer-requires-credit-agency-check" style="background-image: url();" class="offer loan-offer loan-offer-requires_inspection">
-				  <div class="offer-actions">
-					  <p>Hey we giving 50% bonus for every new registered account.</p>
-					</div>
-				</div>   
-				
-			</div>
-		</div>
-	</div>
+  <!-- USER PROFILE HEADER -->
+  <div class="account-profile">
+    <img
+      src="img/profilepix.jpeg"
+      alt="User Profile"
+      class="account-profile__avatar"
+    />
 
-	<div class="sparkline13-list shadow-reset mt-3">
-	
-				<div class="sparkline12-hd mb-2">
-			<div class="main-sparkline12-hd">
-				
-									<div class="sparkline12-outline-icon">
-						<button class="btn btn-danger">Accounts</button>
-					</div>
-							</div>
-		</div>
-			
-		<div class="sparkline13-graph card">
-			<div class="static-table-list card-body">
-			<div class="table-responsive">
-				<table class="table sparkle-table border-top-0">
-					<thead>
-						<tr>
-							<th>Account</th>
-							<th>Limit</th>
-							<th>Account Type</th>
-						   
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>6993413189</td>
-							<td>$50,000 </td>
-							<td>fixed deposit account</td>
-							
-						</tr>
-						<tr>
-							<td></td>
-							<td>$200,000     </td>
-							<td></td>
-						   
-						</tr>
-						
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-	</div>
+    <div class="account-profile__info">
+      <h3 class="account-profile__name">Monika Fischer</h3>
+      <p class="account-profile__meta">Fixed Deposit Account</p>
+    </div>
+  </div>
+
+  <div class="dashboard-card balance-card balance-card--hidden">
+  <div class="balance-card__header">
+    <p class="balance-card__label">Available Balance</p>
+
+<span class="balance-card__toggle" aria-label="Show balance">
+
+  <svg
+    class="eye-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+    <path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+  </svg>
+</span>
+
+  </div>
+
+  <p class="balance-card__amount balance-card__amount--hidden">
+    ••••••••
+  </p>
+</div>
+
+
+  <!-- ACCOUNT OVERVIEW TABLE -->
+  <table class="overview-table">
+    <tr>
+      <td class="label">Account Name</td>
+      <td class="value">Monika Fischer</td>
+    </tr>
+    <tr>
+      <td class="label">Account Number</td>
+      <td class="value">6993413189</td>
+    </tr>
+    <tr>
+      <td class="label">Account Type</td>
+      <td class="value">Fixed Deposit</td>
+    </tr>
+        <tr>
+      <td class="label">Routing Number</td>
+      <td class="value">121000385</td>
+    </tr>
+        <tr>
+      <td class="label">SSN</td>
+      <td class="value">573-6790-26</td>
+    </tr>
+  </table>
+
+</div>
 
 
 
-	<div class="sparkline13-list shadow-reset mt-3">
-	
-				<div class="sparkline12-hd mb-2">
-			<div class="main-sparkline12-hd">
-				<h5>Transaction History</h5>
-							</div>
-		</div>
-	
-		 
+
+<div class="dashboard-grid">
+
+  <!-- CARD 1 -->
+<div class="dashboard-card ai-ad2" id="login-details">
+  <h3>Login Details</h3>
+
+  <p><strong>Last Visit:</strong> <span id="last-login">—</span></p>
+  <p><strong>Device:</strong> <span id="device-info">—</span></p>
+  <p><strong>Timezone:</strong> <span id="timezone">—</span></p>
+</div>
 
 
-		<div class="sparkline13-graph row">
-			<div class="col-md-12 col-sm-12 col-sx-12">
-				<div class='card'>
-					<div class='card-body'>
-						<div class="table-responsive">
-							<table class="display table table-striped" data-table="advance">
-								<thead>
-									<tr>
-										<th class="account header">Account</th>
-										<th class="header">Name</th>
-										<th class="{sorter: &#39;numeric&#39;} header">Ref No.</th>
-										<th class="right header">Date</th>
-										<th class="right header">Description</th>
-										<th class="right {sorter: &#39;date&#39;} header">Debit</th>
-										<th class="right {sorter: &#39;date&#39;} header">Credit</th>
-										<th class="right {sorter: &#39;date&#39;} header">Charges</th>
-									</tr>
-								</thead>
-								<tbody>
-																												<tr>
-											<td nowrap="" class="account" id="account-10034">
-												6993413189											</td>
-											<td>Monika</td>
-											<td style="text-transform: lowercase">
-												viwkx5c3gu											</td>
-											<td class="right">2026/01/09</td>
-											<td class="right">creditunioncapitol</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:green">
-													$&nbsp;26,250.00												</span>
-											</td>
-											
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-										</tr> <!-- zoom -->
+  <!-- CARD 2 -->
+   <div class="dashboard-card ai-ad" id="ai-ad">
+  <h3 id="ai-ad-title">Personalized Offer</h3>
+  <p id="ai-ad-message"></p>
 
-																			<tr>
-											<td nowrap="" class="account" id="account-10034">
-												6993413189											</td>
-											<td>Monika</td>
-											<td style="text-transform: lowercase">
-												oewkx5c3gu											</td>
-											<td class="right">2025/12/23</td>
-											<td class="right"></td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:green">
-													$&nbsp;15,200.00												</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-										</tr> <!-- zoom -->
-																			<tr>
-											<td nowrap="" class="account" id="account-10034">
-												6993413189											</td>
-											<td>Monika</td>
-											<td style="text-transform: lowercase">
-												95140063											</td>
-											<td class="right">2025/12/08</td>
-											<td class="right">from Monika</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-													$&nbsp;5,000.00												</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:green">
-																									</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-													$&nbsp;0.00												</span>
-											</td>
-										</tr> <!-- zoom -->
-																			<tr>
-											<td nowrap="" class="account" id="account-10034">
-												6993413189											</td>
-											<td>Monika</td>
-											<td style="text-transform: lowercase">
-												18305388											</td>
-											<td class="right">2025/12/08</td>
-											<td class="right">from Monika</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-													$&nbsp;5,000.00												</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:green">
-																									</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-													$&nbsp;0.00												</span>
-											</td>
-										</tr> <!-- zoom -->
-																			<tr>
-											<td nowrap="" class="account" id="account-10034">
-												6993413189											</td>
-											<td>Monika</td>
-											<td style="text-transform: lowercase">
-												ipzqdnfmft											</td>
-											<td class="right">2025/12/06</td>
-											<td class="right"></td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:green">
-													$&nbsp;50,000.00												</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-										</tr> <!-- zoom -->
-																			<tr>
-											<td nowrap="" class="account" id="account-10034">
-												6993413189											</td>
-											<td>Monika</td>
-											<td style="text-transform: lowercase">
-												l01jvaxf9r											</td>
-											<td class="right">2025/12/06</td>
-											<td class="right"></td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:green">
-													$&nbsp;100,000.00												</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-										</tr> <!-- zoom -->
-																			<tr>
-											<td nowrap="" class="account" id="account-10034">
-												6993413189											</td>
-											<td>Monika</td>
-											<td style="text-transform: lowercase">
-												e6zjrt9wdk											</td>
-											<td class="right">2025/12/06</td>
-											<td class="right"></td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:green">
-													$&nbsp;20,000.00												</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-										</tr> <!-- zoom -->
-																			<tr>
-											<td nowrap="" class="account" id="account-10034">
-												6993413189											</td>
-											<td>Monika</td>
-											<td style="text-transform: lowercase">
-												vjatb8fxxq											</td>
-											<td class="right">2025/12/06</td>
-											<td class="right"></td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:green">
-													$&nbsp;50,000.00												</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-										</tr> <!-- zoom -->
-																			<tr>
-											<td nowrap="" class="account" id="account-10034">
-												6993413189											</td>
-											<td>Monika</td>
-											<td style="text-transform: lowercase">
-												pkmcih963k											</td>
-											<td class="right">2025/12/06</td>
-											<td class="right"></td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:green">
-													$&nbsp;200,000.00												</span>
-											</td>
-											<td class="right" style="text-transform: lowercase">
-												<span style="color:red">
-																									</span>
-											</td>
-										</tr> <!-- zoom -->
-																			
-																	</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	
-	</div>
-      
-		
-		</main>
-		
-		
-	<div data-bankloader='https://creditunioncapitol.com/app/img/loading.gif'></div>
-	
-	<!-- Essential javascripts for application to work-->
-	<script src="https://creditunioncapitol.com/connections/template/assets-user/js/jquery-3.3.1.min.js"></script>
-	<script src="https://creditunioncapitol.com/connections/template/assets-user/js/popper.min.js"></script>
-	<script src="https://creditunioncapitol.com/connections/template/assets-user/js/bootstrap.min.js"></script>
-	<script src="https://creditunioncapitol.com/connections/template/plugins/dataTables/datatables.min.js"></script>
-	<script src="https://creditunioncapitol.com/connections/template/assets-user/js/main.js"></script>
-	<!-- The javascript plugin to display page loading on top-->
-	<script src="/js/pace.min.js"></script>
-	<script src="/js/loader.js"></script>
-	<script src="/js/main.js"></script>
-	<!-- Page specific javascripts-->
-	
-	    
-	
-    </body>
+  <a href="loans.html" class="ai-ad__btn" id="ai-ad-btn">
+    Learn More
+  </a>
+</div>
+</div>
+
+
+<div class="dashboard-card3 transaction-card">
+  <h3>Transaction History</h3>
+
+  <table class="transaction-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Recepient</th>
+        <th class="amount-col">Amount</th>
+      </tr>
+    </thead>
+
+    <tbody>
+       <tr class="credit">
+        <td>23 Jan</td>
+        <td>Money Added</td>
+        <td><span class="badge credit">Credit</span></td>
+        <td>Monika</td>
+        <td class="amount">+7000</td>
+      </tr>
+
+       <tr class="credit">
+        <td>22 Jan</td>
+        <td>Money Added</td>
+        <td><span class="badge credit">Credit</span></td>
+        <td>Monika</td>
+        <td class="amount">+3322</td>
+      </tr>
+
+      <tr class="debit">
+        <td>21 Jan</td>
+        <td>Local Transfer</td>
+        <td><span class="badge debit">Debit</span></td>
+        <td>Blem Hut</td>
+        <td class="amount">-20000</td>
+      </tr>
+
+      <tr class="credit">
+        <td>20 Jan</td>
+        <td>Money Added</td>
+        <td><span class="badge credit">Credit</span></td>
+        <td>Monika</td>
+        <td class="amount">+4400</td>
+      </tr>
+
+       <tr class="credit">
+        <td>19 Jan</td>
+        <td>Money Added</td>
+        <td><span class="badge credit">Credit</span></td>
+        <td>Monika</td>
+        <td class="amount">+3000</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+  </main>
+  <footer class="app-footer">
+  <p>© 2026 Credit Union Capitol. All rights reserved.</p>
+</footer>
+
+
+  <!-- JS -->
+  <script src="js/script1.js"></script>
+</body>
 </html>
-  
-
-
-
-
-
-
