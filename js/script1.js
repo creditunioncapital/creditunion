@@ -10,6 +10,45 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.toggle("sidebar-open");
     });
   }
+  /* =========================
+     PAGE LOADER / SKELETON REVEAL
+  ========================= */
+  const pageLoader = document.querySelector(".page-loader");
+
+  // Simulate YouTube-style delay
+  setTimeout(() => {
+    if (pageLoader) {
+      pageLoader.style.opacity = "0";
+      pageLoader.style.pointerEvents = "none";
+
+      setTimeout(() => {
+        pageLoader.remove();
+      }, 1000);
+    }
+
+    document.body.classList.remove("page-loading");
+  }, 1500);
+
+    /* =========================
+     CLOSE SIDEBAR ON OUTSIDE CLICK
+  ========================= */
+
+  document.addEventListener("click", (e) => {
+    if (!document.body.classList.contains("sidebar-open")) return;
+
+    const sidebar = document.querySelector(".app-sidebar");
+    const toggle = document.querySelector(".app-sidebar__toggle");
+
+    if (
+      sidebar &&
+      !sidebar.contains(e.target) &&
+      toggle &&
+      !toggle.contains(e.target)
+    ) {
+      document.body.classList.remove("sidebar-open");
+    }
+  });
+
 
   /* =========================
      TREEVIEW MENU
@@ -57,6 +96,25 @@ document.addEventListener("DOMContentLoaded", () => {
       balanceCard.classList.add("balance-card--show");
     }, 800);
   }
+    /* =========================
+     BALANCE CARD FOCUS GLOW
+  ========================= */
+
+  if (balanceCard) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          balanceCard.classList.add("balance-card--active");
+        } else {
+          balanceCard.classList.remove("balance-card--active");
+        }
+      },
+      { threshold: 0.5 }
+    );
+
+    observer.observe(balanceCard);
+  }
+
 
   /* =========================
      BALANCE VISIBILITY TOGGLE (SVG EYE)
@@ -131,6 +189,52 @@ document.addEventListener("DOMContentLoaded", () => {
       adMessage.textContent =
         "Discover tools and services designed to help you manage your finances.";
     }
+  }
+
+  /* =========================
+     TRANSFER BUTTON → SIDEBAR TREEVIEW (WITH AUTO-FOCUS)
+  ========================= */
+
+  const transferBtn = document.getElementById("transfer-btn");
+  const transfersMenu = document.getElementById("transfers-menu");
+  const domesticLink = document.getElementById("domestic-transfer");
+
+  if (transferBtn && transfersMenu) {
+transferBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  e.stopPropagation(); // 🔑 THIS LINE FIXES IT
+
+
+      // Open sidebar
+      document.body.classList.add("sidebar-open");
+
+      // Collapse other treeviews
+      document.querySelectorAll(".treeview").forEach(menu => {
+        if (menu !== transfersMenu) {
+          menu.classList.remove("is-expanded");
+        }
+      });
+
+      // Expand Transfers
+      transfersMenu.classList.add("is-expanded");
+
+      // Bring Transfers into view
+      transfersMenu.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+
+      // Auto-focus Domestic Transfer
+      if (domesticLink) {
+        setTimeout(() => {
+          domesticLink.focus();
+          domesticLink.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+        }, 200); // wait for expand animation
+      }
+    });
   }
 
 });
