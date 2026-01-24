@@ -14,7 +14,20 @@
   <!-- Main CSS -->
   <link rel="stylesheet" href="css/main1.css">
 </head>
-<body class="app sidebar-mini">
+<body class="app sidebar-mini page-loading">
+
+<div class="page-loader skeleton-loader">
+  <div class="skeleton-header"></div>
+
+  <div class="skeleton-grid">
+    <div class="skeleton-card"></div>
+    <div class="skeleton-card"></div>
+  </div>
+
+  <div class="skeleton-card wide"></div>
+</div>
+
+
 
   <!-- HEADER -->
 <header class="app-header">
@@ -73,20 +86,23 @@
         
         </ul>
       </li>
+<li class="treeview" id="transfers-menu">
+  <a class="app-menu__item" href="#">
+    <i class="app-menu__icon fas fa-exchange-alt"></i>
+    <span class="app-menu__label">Transfers</span>
+    <i class="treeview-indicator fas fa-angle-right"></i>
+  </a>
+  <ul class="treeview-menu">
+<li>
+  <a class="treeview-item" href="local.html" id="domestic-transfer">
+    Domestic
+  </a>
+</li>
+    <li><a class="treeview-item" href="international.html">International</a></li>
+    <li><a class="treeview-item" href="activity.html">History</a></li>
+  </ul>
+</li>
 
-      <li class="treeview">
-        <a class="app-menu__item" href="#">
-          <i class="app-menu__icon fas fa-exchange-alt"></i>
-          <span class="app-menu__label">Transfers</span>
-          <i class="treeview-indicator fas fa-angle-right"></i>
-        </a>
-        <ul class="treeview-menu">
-          <li><a class="treeview-item" href="local.html">Domestic</a></li>
-          <li><a class="treeview-item" href="international.html">International</a></li>
-          <li><a class="treeview-item" href="activity.html">History</a></li>
-
-        </ul>
-      </li>
 
       <li class="treeview">
         <a class="app-menu__item" href="#">
@@ -196,6 +212,22 @@
 
 </div>
 
+<div class="account-actions">
+<button id="transfer-btn" class="account-action-btn transfer">
+    <i class="fas fa-exchange-alt"></i>
+    <span>Transfer</span>
+  </button>
+
+  <button class="account-action-btn deposit">
+    <i class="fas fa-arrow-down"></i>
+    <span>Deposit</span>
+  </button>
+
+  <button class="account-action-btn save">
+    <i class="fas fa-piggy-bank"></i>
+    <span>Save</span>
+  </button>
+</div>
 
 
 
