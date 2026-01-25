@@ -11,23 +11,33 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
   /* =========================
-     PAGE LOADER / SKELETON REVEAL
+     SKELETON ONLY ON HARD REFRESH
   ========================= */
+
   const pageLoader = document.querySelector(".page-loader");
 
-  // Simulate YouTube-style delay
-  setTimeout(() => {
-    if (pageLoader) {
-      pageLoader.style.opacity = "0";
-      pageLoader.style.pointerEvents = "none";
+  const navEntry = performance.getEntriesByType("navigation")[0];
+  const isHardRefresh = navEntry && navEntry.type === "reload";
 
-      setTimeout(() => {
-        pageLoader.remove();
-      }, 1000);
-    }
+  if (isHardRefresh) {
+    // Hard refresh → show skeleton
+    setTimeout(() => {
+      document.body.classList.remove("page-loading");
 
+      if (pageLoader) {
+        pageLoader.style.opacity = "0";
+        pageLoader.style.pointerEvents = "none";
+
+        setTimeout(() => {
+          pageLoader.remove();
+        }, 2000);
+      }
+    }, 3000);
+  } else {
+    // Normal navigation → skip skeleton
     document.body.classList.remove("page-loading");
-  }, 1500);
+    if (pageLoader) pageLoader.remove();
+  }
 
     /* =========================
      CLOSE SIDEBAR ON OUTSIDE CLICK
