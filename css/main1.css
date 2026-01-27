@@ -962,3 +962,22 @@ body.page-loading .skeleton-card {
 .account-action-btn.save:hover {
   box-shadow: 0 8px 20px rgba(255, 179, 0, 0.226);
 }
+.transaction-card {
+  width: 100%;
+  grid-column: 1 / -1;
+}
+
+.account-action-btn.deposit {
+  background: #007d81;
+}
+
+.account-action-btn.transfer {
+  background: #0b1c2d;
+}
+
+.account-action-btn.save {
+  background: #f0f4f8;
+  color: #0b1c2d;
+}
+
+
