@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
       balanceVisible = !balanceVisible;
 
       if (balanceVisible) {
-        balanceAmount.textContent = "$552,430.75";
+        balanceAmount.textContent = "$571,450.00";
         balanceAmount.classList.remove("balance-card__amount--hidden");
         balanceAmount.classList.add("balance-card__amount--visible");
 
