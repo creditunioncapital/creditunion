@@ -25,7 +25,15 @@ body {
   overflow-x: hidden;
   background: var(--bg-page);
  }
+body.phoenix-mode {
+  --bg-page: #050708;
+  --bg-card: #0c0f12;
+  --bg-sidebar: #020304;
+  --bg-header: #020607;
 
+  --text-primary: #e8edf2;
+  --text-secondary: #9aa6b2;
+}
 
 /* =========================
    HEADER
