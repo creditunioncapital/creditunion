@@ -588,6 +588,7 @@ border-left: 1px ridge #ffffff00;
 .transaction-table thead {
   background: #017e83;
   width: 100%;
+   max-width: 100%;
 }
 
 .transaction-table th {
@@ -595,6 +596,8 @@ border-left: 1px ridge #ffffff00;
   padding: 15px;
   color: #ffffff;
   font-weight: 600;
+   max-width: 100%;
+   
 }
 
 .transaction-table td {
@@ -984,5 +987,6 @@ body.page-loading .skeleton-card {
   background: #f0f4f8;
   color: #0b1c2d;
 }
+
 
 
