@@ -1,5 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  
+const phoenixToggle = document.getElementById("phoenix-toggle");
+
+if (phoenixToggle) {
+  // restore preference
+  if (localStorage.getItem("theme") === "phoenix") {
+    document.body.classList.add("phoenix-mode");
+  }
+
+  phoenixToggle.addEventListener("click", () => {
+    document.body.classList.toggle("phoenix-mode");
+
+    if (document.body.classList.contains("phoenix-mode")) {
+      localStorage.setItem("theme", "phoenix");
+    } else {
+      localStorage.removeItem("theme");
+    }
+  });
+}
   /* =========================
      SIDEBAR TOGGLE
   ========================= */
@@ -248,4 +267,5 @@ transferBtn.addEventListener("click", (e) => {
   }
 
 });
+
 
