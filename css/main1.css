@@ -425,7 +425,7 @@ body.sidebar-open .app-content {
 
 .dashboard-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: 20px;
 }
 
@@ -587,6 +587,7 @@ border-left: 1px ridge #ffffff00;
 
 .transaction-table thead {
   background: #017e83;
+  width: 100%;
 }
 
 .transaction-table th {
