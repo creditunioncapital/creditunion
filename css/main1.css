@@ -730,6 +730,8 @@ border-left: 1px ridge #ffffff00;
   background: #f0f4f8;
   color: #0b1c2d;
   border: 1px solid #d0d7de;
+     text-decoration: none;   /* removes underline */
+
 }
 
 /* Hover effect */
@@ -962,3 +964,4 @@ body.page-loading .skeleton-card {
 .account-action-btn.save:hover {
   box-shadow: 0 8px 20px rgba(255, 179, 0, 0.226);
 }
+
