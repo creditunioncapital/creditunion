@@ -30,21 +30,24 @@ if (phoenixToggle) {
       document.body.classList.toggle("sidebar-open");
     });
   }
- document.addEventListener("DOMContentLoaded", () => {
+ window.addEventListener("load", () => {
   const pageLoader = document.querySelector(".skeleton-loader");
+  const skeletons = document.querySelectorAll(
+    ".skeleton-header, .skeleton-card"
+  );
 
-  // Always stop loading state
+  // Remove ONLY page-loading (keep other body classes)
   document.body.classList.remove("page-loading");
 
-  // Kill shimmer animation
-  document.querySelectorAll(".skeleton-header, .skeleton-card")
-    .forEach(el => {
-      el.style.animation = "none";
-      el.style.background = "transparent";
-    });
+  // Hard stop shimmer animations
+  skeletons.forEach(el => {
+    el.style.animation = "none";
+    el.style.background = "transparent";
+  });
 
-  // Fade + remove skeleton
+  // Fade out loader
   if (pageLoader) {
+    pageLoader.style.transition = "opacity 0.5s ease";
     pageLoader.style.opacity = "0";
     pageLoader.style.pointerEvents = "none";
 
