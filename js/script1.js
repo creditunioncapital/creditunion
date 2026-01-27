@@ -1,3 +1,16 @@
+/* =========================
+   SKELETON — HARD REFRESH ONLY
+   (PLACE AT TOP OF FILE)
+========================= */
+
+(() => {
+  const nav = performance.getEntriesByType("navigation")[0];
+
+  if (nav && nav.type === "reload") {
+    document.body.classList.add("page-loading");
+  }
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
 
   
