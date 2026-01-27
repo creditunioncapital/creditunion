@@ -30,32 +30,29 @@ if (phoenixToggle) {
       document.body.classList.toggle("sidebar-open");
     });
   }
- /* =========================
-   SKELETON ONLY ON HARD REFRESH (FIXED)
-========================= */
+ document.addEventListener("DOMContentLoaded", () => {
+  const pageLoader = document.querySelector(".skeleton-loader");
 
-const pageLoader = document.querySelector(".page-loader");
-const navEntry = performance.getEntriesByType("navigation")[0];
-const isHardRefresh = navEntry?.type === "reload";
-
-if (isHardRefresh) {
-  // Hard refresh → show skeleton briefly
-  setTimeout(() => {
-    document.body.classList.remove("page-loading");
-
-    if (pageLoader) {
-      pageLoader.classList.add("fade-out");
-
-      setTimeout(() => {
-        pageLoader.remove();
-      }, 600);
-    }
-  }, 1200); // 👈 shorter & intentional
-} else {
-  // Soft navigation → no skeleton
+  // Always stop loading state
   document.body.classList.remove("page-loading");
-  if (pageLoader) pageLoader.remove();
-}
+
+  // Kill shimmer animation
+  document.querySelectorAll(".skeleton-header, .skeleton-card")
+    .forEach(el => {
+      el.style.animation = "none";
+      el.style.background = "transparent";
+    });
+
+  // Fade + remove skeleton
+  if (pageLoader) {
+    pageLoader.style.opacity = "0";
+    pageLoader.style.pointerEvents = "none";
+
+    setTimeout(() => {
+      pageLoader.remove();
+    }, 1600);
+  }
+});
     /* =========================
      CLOSE SIDEBAR ON OUTSIDE CLICK
   ========================= */
