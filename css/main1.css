@@ -714,6 +714,7 @@ border-left: 1px ridge #ffffff00;
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
 }
 
 /* Individual actions */
@@ -731,6 +732,7 @@ border-left: 1px ridge #ffffff00;
   background: #f0f4f8;
   color: #0b1c2d;
   border: 1px solid #d0d7de;
+   text-decoration: none;
 }
 
 /* Hover effect */
@@ -747,12 +749,14 @@ border-left: 1px ridge #ffffff00;
   align-items: center;
   justify-content: center;
   gap: 8px;
+    text-decoration: none;
 }
 
 .account-action-btn i {
   font-size: 16px;
   transition: transform 0.25s ease, opacity 0.25s ease;
   opacity: 0.9;
+    text-decoration: none;
 }
 
 /* Subtle icon motion on hover */
