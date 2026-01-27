@@ -4,6 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
 const phoenixToggle = document.getElementById("phoenix-toggle");
 
 if (phoenixToggle) {
+  phoenixToggle.addEventListener("click", () => {
+    document.body.classList.toggle("phoenix-mode");
+    alert("Phoenix mode toggled");
+  });
+}
+const phoenixToggle = document.getElementById("phoenix-toggle");
+
+if (phoenixToggle) {
   // restore preference
   if (localStorage.getItem("theme") === "phoenix") {
     document.body.classList.add("phoenix-mode");
