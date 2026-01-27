@@ -570,7 +570,12 @@ border-left: 1px ridge #ffffff00;
   width: 100%;
   overflow-x: auto;
 }
-
+.dashboard-grid > .transaction-card {
+  grid-column: 1 / -1;
+     }
+.transaction-card {
+  outline: 3px solid red;
+}
 
 .transaction-card h3 {
   margin-top: 0;
@@ -581,8 +586,10 @@ border-left: 1px ridge #ffffff00;
 
 .transaction-table {
   width: 100%;
+ max-width: 100%;
   border-collapse: collapse;
   font-size: 13px;
+   min-width: 600px;
 }
 
 .transaction-table thead {
@@ -984,6 +991,7 @@ body.page-loading .skeleton-card {
   background: #f0f4f8;
   color: #0b1c2d;
 }
+
 
 
 
