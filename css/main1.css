@@ -1065,16 +1065,7 @@ body.phoenix-mode .dashboard-card {
    SKELETON CLEAN EXIT (ADD)
 ========================= */
 
-.page-loader {
-  transition: opacity 0.6s ease;
-}
 
-.page-loader.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Stop shimmer once loading ends */
 body:not(.page-loading) .skeleton-header,
 body:not(.page-loading) .skeleton-card {
   animation: none !important;
