@@ -30,32 +30,28 @@ if (phoenixToggle) {
       document.body.classList.toggle("sidebar-open");
     });
   }
- window.addEventListener("load", () => {
-  const pageLoader = document.querySelector(".skeleton-loader");
-  const skeletons = document.querySelectorAll(
-    ".skeleton-header, .skeleton-card"
-  );
 
-  // Remove ONLY page-loading (keep other body classes)
+
+ window.addEventListener("load", () => {
+  const loader = document.querySelector(".skeleton-loader");
+
+  // Always remove page-loading
   document.body.classList.remove("page-loading");
 
-  // Hard stop shimmer animations
-  skeletons.forEach(el => {
-    el.style.animation = "none";
-    el.style.background = "transparent";
-  });
+  if (!loader) return;
 
   // Fade out loader
-  if (pageLoader) {
-    pageLoader.style.transition = "opacity 0.5s ease";
-    pageLoader.style.opacity = "0";
-    pageLoader.style.pointerEvents = "none";
+  loader.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+  loader.style.opacity = "0";
+  loader.style.pointerEvents = "none";
 
-    setTimeout(() => {
-      pageLoader.remove();
-    }, 1600);
-  }
+  // Remove from DOM
+  setTimeout(() => {
+    loader.remove();
+  }, 700);
 });
+
+
     /* =========================
      CLOSE SIDEBAR ON OUTSIDE CLICK
   ========================= */
