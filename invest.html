@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invest — Credit Union Capitol</title>
+
+  <!-- Site styles (keeps same look & feel) -->
+  <link rel="stylesheet" href="css/main1.css">
+
+  <!-- QR library (client-side) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="app sidebar-mini ">
+
+  <!-- HEADER (same pattern as other root pages) -->
+  <header class="app-header">
+    <span class="app-sidebar__toggle" aria-label="Toggle sidebar">☰</span>
+    <a href="dashboard.html" class="app-header__logo">
+      <img src="img/logoo.png" alt="Bank Logo" class="app-header__logo-img" />
+    </a>
+  </header>
+
+  <main class="app-content">
+    <div class="card">
+      <div class="card-body">
+
+        <div class="dashboard-card3 transaction-card">
+          <h2>Invest in Cryptocurrency</h2>
+
+          <p class="muted" style="margin-bottom:1rem;">
+            Grow your portfolio with secure, professionally managed crypto investment options.
+            We offer a simple deposit flow and flexible investment terms — deposit the crypto of your choice and confirm once funds are received.
+          </p>
+
+          <!-- INVEST FORM -->
+          <form id="invest-form" class="mb-3" onsubmit="return false;">
+            <div class="row mb-2">
+              <div class="col-lg-4">
+                <label><strong>Amount</strong></label>
+              </div>
+              <div class="col-lg-8">
+                <input id="amount" name="amount" type="number" class="form-control" min="0.01" step="0.01" placeholder="Enter amount" required>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-lg-4">
+                <label><strong>Crypto</strong></label>
+              </div>
+              <div class="col-lg-8">
+                <select id="crypto-select" class="form-control" required>
+                  <option value="BTC">Bitcoin (BTC)</option>
+                  <option value="ETH">Ethereum (ETH)</option>
+                  <option value="USDT">Tether (USDT)</option>
+                  <option value="LTC">Litecoin (LTC)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+              <div class="col-lg-4">
+                <label><strong>Duration</strong></label>
+              </div>
+              <div class="col-lg-8">
+                <select id="duration" class="form-control">
+                  <option value="1">1 month</option>
+                  <option value="3">3 months</option>
+                  <option value="6">6 months</option>
+                  <option value="12">12 months</option>
+                </select>
+              </div>
+            </div>
+
+            <hr />
+
+            <!-- Address & QR -->
+            <div class="row mb-2">
+              <div class="col-lg-4">
+                <label><strong>Deposit Address</strong></label>
+              </div>
+              <div class="col-lg-8">
+                <!-- readonly so user can copy -->
+                <input id="deposit-address" class="form-control" readonly value="">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-lg-4">
+                <label><strong>QR Code</strong></label>
+              </div>
+              <div class="col-lg-8">
+                <div id="qrcode" style="padding:8px; background:#fff; display:inline-block;"></div>
+                <div style="margin-top:.5rem; color:#6c757d; font-size:.9rem;">
+                  Scan to copy the deposit address.
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4"></div>
+              <div class="col-lg-8">
+                <!-- Confirm button text required by spec -->
+                <button id="confirm-btn" type="button" class="btn btn-primary" style="white-space:normal;">
+                  click after depositing crypto
+                </button>
+                <a href="dashboard.html" class="btn btn-link" style="margin-left:10px;">Back to Dashboard</a>
+              </div>
+            </div>
+          </form>
+
+          <small class="text-muted">
+            Note: Addresses shown are placeholders — replace them with your actual deposit addresses or integrate with your backend for dynamic addresses.
+          </small>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER (same as other root pages) -->
+  <footer class="app-footer">
+    <p>© 2026 Credit Union Capitol. All rights reserved.</p>
+  </footer>
+
+  <!-- Site scripts (keeps same interactive behaviour) -->
+  <script src="js/script1.js"></script>
+
+  <!-- Page script: address & QR handling (placeholder addresses) -->
+  <script>
+    (function () {
+      // Replace these placeholders with real deposit addresses or populate from the server.
+      const ADDRESSES = {
+        BTC: 'BTC_PLACEHOLDER_ADDRESS_REPLACE_ME',
+        ETH: 'ETH_PLACEHOLDER_ADDRESS_REPLACE_ME',
+        USDT: 'USDT_PLACEHOLDER_ADDRESS_REPLACE_ME',
+        LTC: 'LTC_PLACEHOLDER_ADDRESS_REPLACE_ME'
+      };
+
+      const selectEl = document.getElementById('crypto-select');
+      const addressEl = document.getElementById('deposit-address');
+      const qrcodeContainer = document.getElementById('qrcode');
+      const confirmBtn = document.getElementById('confirm-btn');
+
+      let qr; // QRCode instance
+
+      function renderQRCode(text) {
+        // clear previous QR
+        qrcodeContainer.innerHTML = '';
+        if (!text) return;
+        qr = new QRCode(qrcodeContainer, {
+          text: text,
+          width: 160,
+          height: 160,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+      }
+
+      function updateForSelection() {
+        const coin = selectEl.value;
+        const addr = ADDRESSES[coin] || '';
+        addressEl.value = addr;
+        renderQRCode(addr);
+      }
+
+      // copy address on click
+      addressEl.addEventListener('click', function () {
+        if (!this.value) return;
+        this.select();
+        try {
+          document.execCommand('copy');
+          // small ephemeral feedback
+          const orig = this.value;
+          const prev = this.className;
+          this.classList.add('copied');
+        } catch (e) {
+          // ignore
+        }
+      });
+
+      // Confirm button behaviour: validate and redirect to dashboard
+      confirmBtn.addEventListener('click', function () {
+        const amount = parseFloat(document.getElementById('amount').value);
+        const coin = selectEl.value;
+        const addr = addressEl.value;
+
+        if (!amount || amount <= 0) {
+          alert('Please enter an amount to invest.');
+          return;
+        }
+        if (!coin || !addr) {
+          alert('Please select a cryptocurrency and get a deposit address.');
+          return;
+        }
+
+        // This is a client-side confirmation only.
+        // In production, you would verify the deposit on the backend before crediting the investment.
+        alert('Thank you. After depositing the selected crypto to the address shown, click OK to return to your dashboard.');
+        window.location.href = 'dashboard.html';
+      });
+
+      // init
+      updateForSelection();
+      selectEl.addEventListener('change', updateForSelection);
+
+      // accessibility: allow Enter key on address to copy
+      addressEl.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          this.select();
+          try { document.execCommand('copy'); } catch (e) {}
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
