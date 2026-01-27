@@ -1043,5 +1043,12 @@ body.phoenix-mode .balance-card {
   color: inherit;
    }
 
+body.phoenix-mode {
+  background: #000000 !important;
+}
 
+body.phoenix-mode .dashboard-card {
+  background: #111111 !important;
+  color: #ffffff !important;
+}
 
