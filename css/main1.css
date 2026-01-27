@@ -23,7 +23,9 @@ body {
   font-family: "Nunito", sans-serif;
   background: #007d812c;
   overflow-x: hidden;
-}
+  background: var(--bg-page);
+ }
+
 
 /* =========================
    HEADER
@@ -33,7 +35,7 @@ body {
   top: 0;
   z-index: 1000;
   height: 60px;
-  background: #007d81;
+  background: var(--bg-header);
   display: flex;
   align-items: center;
   padding: 0 20px;
@@ -91,7 +93,7 @@ body {
   left: 0;
   bottom: 0;
   width: 240px;
-  background: #070a0f;
+background: var(--bg-header);
   overflow-y: auto;
   transform: translateX(-240px);
   transition: transform 0.3s ease;
@@ -190,7 +192,7 @@ body.sidebar-open .app-sidebar {
   padding: 0;
   margin: 0;
   display: none;
-  background: #0e1218;
+  background: var(--bg-header);
 }
 
 .treeview.is-expanded .treeview-menu {
@@ -241,7 +243,7 @@ body.sidebar-open .app-content {
   outline: 1px solid #007d8133;
 }
 .dashboard-card {
-  background: linear-gradient(135deg, #ffffff, #007d8107);
+  background: var(--bg-header);
   padding: 20px;
   border-radius: 6px;
   margin-bottom: 20px;
