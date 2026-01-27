@@ -30,35 +30,32 @@ if (phoenixToggle) {
       document.body.classList.toggle("sidebar-open");
     });
   }
-  /* =========================
-     SKELETON ONLY ON HARD REFRESH
-  ========================= */
+ /* =========================
+   SKELETON ONLY ON HARD REFRESH (FIXED)
+========================= */
 
-  const pageLoader = document.querySelector(".page-loader");
+const pageLoader = document.querySelector(".page-loader");
+const navEntry = performance.getEntriesByType("navigation")[0];
+const isHardRefresh = navEntry?.type === "reload";
 
-  const navEntry = performance.getEntriesByType("navigation")[0];
-  const isHardRefresh = navEntry && navEntry.type === "reload";
-
-  if (isHardRefresh) {
-    // Hard refresh → show skeleton
-    setTimeout(() => {
-      document.body.classList.remove("page-loading");
-
-      if (pageLoader) {
-        pageLoader.style.opacity = "0";
-        pageLoader.style.pointerEvents = "none";
-
-        setTimeout(() => {
-          pageLoader.remove();
-        }, 2000);
-      }
-    }, 3000);
-  } else {
-    // Normal navigation → skip skeleton
+if (isHardRefresh) {
+  // Hard refresh → show skeleton briefly
+  setTimeout(() => {
     document.body.classList.remove("page-loading");
-    if (pageLoader) pageLoader.remove();
-  }
 
+    if (pageLoader) {
+      pageLoader.classList.add("fade-out");
+
+      setTimeout(() => {
+        pageLoader.remove();
+      }, 600);
+    }
+  }, 1200); // 👈 shorter & intentional
+} else {
+  // Soft navigation → no skeleton
+  document.body.classList.remove("page-loading");
+  if (pageLoader) pageLoader.remove();
+}
     /* =========================
      CLOSE SIDEBAR ON OUTSIDE CLICK
   ========================= */
