@@ -1,38 +1,5 @@
-/* =========================
-   SKELETON — HARD REFRESH ONLY
-   (PLACE AT TOP OF FILE)
-========================= */
-
-(() => {
-  const nav = performance.getEntriesByType("navigation")[0];
-
-  if (nav && nav.type === "reload") {
-    document.body.classList.add("page-loading");
-  }
-})();
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  
-const phoenixToggle = document.getElementById("phoenix-toggle");
-
-if (phoenixToggle) {
-  phoenixToggle.addEventListener("click", () => {
-    document.body.classList.toggle("phoenix-mode");
-    alert("Phoenix mode toggled");
-  });
-}
-
-  phoenixToggle.addEventListener("click", () => {
-    document.body.classList.toggle("phoenix-mode");
-
-    if (document.body.classList.contains("phoenix-mode")) {
-      localStorage.setItem("theme", "phoenix");
-    } else {
-      localStorage.removeItem("theme");
-    }
-  });
-}
   /* =========================
      SIDEBAR TOGGLE
   ========================= */
@@ -43,27 +10,34 @@ if (phoenixToggle) {
       document.body.classList.toggle("sidebar-open");
     });
   }
+  /* =========================
+     SKELETON ONLY ON HARD REFRESH
+  ========================= */
 
+  const pageLoader = document.querySelector(".page-loader");
 
- window.addEventListener("load", () => {
-  const loader = document.querySelector(".skeleton-loader");
+  const navEntry = performance.getEntriesByType("navigation")[0];
+  const isHardRefresh = navEntry && navEntry.type === "reload";
 
-  // Always remove page-loading
-  document.body.classList.remove("page-loading");
+  if (isHardRefresh) {
+    // Hard refresh → show skeleton
+    setTimeout(() => {
+      document.body.classList.remove("page-loading");
 
-  if (!loader) return;
+      if (pageLoader) {
+        pageLoader.style.opacity = "0";
+        pageLoader.style.pointerEvents = "none";
 
-  // Fade out loader
-  loader.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-  loader.style.opacity = "0";
-  loader.style.pointerEvents = "none";
-
-  // Remove from DOM
-  setTimeout(() => {
-    loader.remove();
-  }, 700);
-});
-
+        setTimeout(() => {
+          pageLoader.remove();
+        }, 2000);
+      }
+    }, 3000);
+  } else {
+    // Normal navigation → skip skeleton
+    document.body.classList.remove("page-loading");
+    if (pageLoader) pageLoader.remove();
+  }
 
     /* =========================
      CLOSE SIDEBAR ON OUTSIDE CLICK
@@ -274,5 +248,4 @@ transferBtn.addEventListener("click", (e) => {
   }
 
 });
-
 
