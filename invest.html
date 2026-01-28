@@ -179,26 +179,28 @@
         }
       });
 
-      // Confirm button behaviour: validate and redirect to dashboard
-      confirmBtn.addEventListener('click', function () {
-        const amount = parseFloat(document.getElementById('amount').value);
-        const coin = selectEl.value;
-        const addr = addressEl.value;
+  confirmBtn.addEventListener('click', function () {
+  const amount = parseFloat(document.getElementById('amount').value);
+  const duration = parseInt(document.getElementById('duration').value, 10);
+  const crypto = selectEl.value;
 
-        if (!amount || amount <= 0) {
-          alert('Please enter an amount to invest.');
-          return;
-        }
-        if (!coin || !addr) {
-          alert('Please select a cryptocurrency and get a deposit address.');
-          return;
-        }
+  if (!amount || amount <= 0) {
+    alert('Please enter an amount to invest.');
+    return;
+  }
 
-        // This is a client-side confirmation only.
-        // In production, you would verify the deposit on the backend before crediting the investment.
-        alert('Thank you. After depositing the selected crypto to the address shown, click OK to proceed to Our Investment Plans.');
-        window.location.href = 'investplan.html';
-      });
+  if (!duration) {
+    alert('Please select an investment duration.');
+    return;
+  }
+
+  // Save data for next page
+  sessionStorage.setItem('invest_amount', amount);
+  sessionStorage.setItem('invest_duration', duration);
+  sessionStorage.setItem('invest_crypto', crypto);
+
+  window.location.href = 'investplan.html';
+});
 
       // init
       updateForSelection();
