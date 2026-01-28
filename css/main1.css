@@ -1103,9 +1103,10 @@ body.page-loading .skeleton-card {
   color: #0b1c2d;
   font-weight: 600;
 }
-#tier-range {
-  display: block;
-  margin-top: 6px;
+
+.tier-range {
+  margin-top: 8px;
   font-size: 13px;
-  color: #007d81;
+  color: #017e83;
+  font-weight: 600;
 }
