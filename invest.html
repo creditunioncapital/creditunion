@@ -53,6 +53,7 @@
     </select>
 
     <small id="tier-range" class="text-muted" style="display:none;"></small>
+<select id="tier" class="form-control">
   </div>
 </div>
                 <label><strong>Amount</strong></label>
@@ -210,51 +211,41 @@
     alert('Please select an investment duration.');
     return;
   }
-/* =========================
-   INVESTMENT TIER GUIDE
-========================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const tierSelect = document.getElementById("tier");
+  const tierRange = document.getElementById("tier-range");
+  const amountInput = document.getElementById("amount");
 
-const tierSelect = document.getElementById("tier");
-const tierRange = document.getElementById("tier-range");
+  if (!tierSelect || !tierRange) return;
 
-const tierConfig = {
-  bronze: {
-    label: "Bronze",
-    min: 5000,
-    max: 10000
-  },
-  silver: {
-    label: "Silver",
-    min: 10000,
-    max: 25000
-  },
-  gold: {
-    label: "Gold",
-    min: 25000,
-    max: 50000
-  },
-  platinum: {
-    label: "Platinum",
-    min: 100000,
-    max: null
-  }
-};
+  const tierConfig = {
+    bronze: { min: 5000, max: 10000 },
+    silver: { min: 10000, max: 25000 },
+    gold: { min: 25000, max: 50000 },
+    platinum: { min: 100000, max: null }
+  };
 
-tierSelect.addEventListener("change", () => {
-  const tier = tierSelect.value;
+  tierSelect.addEventListener("change", () => {
+    const tier = tierSelect.value;
 
-  if (!tier || !tierConfig[tier]) {
-    tierRange.style.display = "none";
-    tierRange.textContent = "";
-    return;
-  }
+    if (!tier || !tierConfig[tier]) {
+      tierRange.style.display = "none";
+      tierRange.textContent = "";
+      return;
+    }
 
-  const { min, max } = tierConfig[tier];
+    const { min, max } = tierConfig[tier];
 
-  tierRange.style.display = "block";
-  tierRange.textContent = max
-    ? `Recommended investment: $${min.toLocaleString()} – $${max.toLocaleString()}`
-    : `Recommended investment: $${min.toLocaleString()} and above`;
+    tierRange.style.display = "block";
+    tierRange.textContent = max
+      ? `Recommended investment: $${min.toLocaleString()} – $${max.toLocaleString()}`
+      : `Recommended investment: $${min.toLocaleString()} and above`;
+
+    // Optional UX: auto-fill amount
+    if (amountInput) {
+      amountInput.value = min;
+    }
+  });
 });
 
   // Save data for next page
