@@ -38,30 +38,27 @@
           <form id="invest-form" class="mb-3" onsubmit="return false;">
             <div class="row mb-2">
               <div class="col-lg-4">
-<!-- Investment Tier -->
-<div class="row">
-  <div class="col-lg-4">
-    <label for="tier">Investment Tier</label>
-  </div>
-  <div class="col-lg-8">
-    <select id="tier" class="form-control">
-      <option value="">Select Tier</option>
-      <option value="bronze">Bronze</option>
-      <option value="silver">Silver</option>
-      <option value="gold">Gold</option>
-      <option value="platinum">Platinum</option>
-    </select>
+<label for="tier">Select Tier</label>
+  <select id="tier" required>
+    <option value="">Choose a tier</option>
+    <option value="bronze">Bronze</option>
+    <option value="silver">Silver</option>
+    <option value="gold">Gold</option>
+    <option value="platinum">Platinum</option>
+  </select>
 
-    <small id="tier-range" class="text-muted" style="display:none;"></small>
-<select id="tier" class="form-control">
-  </div>
-</div>
-                <label><strong>Amount</strong></label>
-              </div>
-              <div class="col-lg-8">
-                <input id="amount" name="amount" type="number" class="form-control" min="0.01" step="0.01" placeholder="Enter amount" required>
-              </div>
-            </div>
+  <!-- Tier range display -->
+  <p id="tier-range" class="tier-range"></p>
+
+  <!-- Amount -->
+  <label for="amount">Investment Amount ($)</label>
+  <input
+    type="number"
+    id="amount"
+    placeholder="Enter amount"
+    required
+  />
+
                                                                                                         
             <div class="row mb-2">
               <div class="col-lg-4">
@@ -144,131 +141,53 @@
   <script src="/js/script1.js"></script>
 
   <!-- Page script: address & QR handling (placeholder addresses) -->
-  <script>
-    (function () {
-      // Replace these placeholders with real deposit addresses or populate from the server.
-      const ADDRESSES = {
-        BTC: 'BTC_PLACEHOLDER_ADDRESS_REPLACE_ME',
-        ETH: 'ETH_PLACEHOLDER_ADDRESS_REPLACE_ME',
-        USDT: 'USDT_PLACEHOLDER_ADDRESS_REPLACE_ME',
-        LTC: 'LTC_PLACEHOLDER_ADDRESS_REPLACE_ME'
-      };
-
-      const selectEl = document.getElementById('crypto-select');
-      const addressEl = document.getElementById('deposit-address');
-      const qrcodeContainer = document.getElementById('qrcode');
-      const confirmBtn = document.getElementById('confirm-btn');
-
-      let qr; // QRCode instance
-
-      function renderQRCode(text) {
-        // clear previous QR
-        qrcodeContainer.innerHTML = '';
-        if (!text) return;
-        qr = new QRCode(qrcodeContainer, {
-          text: text,
-          width: 160,
-          height: 160,
-          colorDark: "#000000",
-          colorLight: "#ffffff",
-          correctLevel: QRCode.CorrectLevel.H
-        });
-      }
-
-      function updateForSelection() {
-        const coin = selectEl.value;
-        const addr = ADDRESSES[coin] || '';
-        addressEl.value = addr;
-        renderQRCode(addr);
-      }
-
-      // copy address on click
-      addressEl.addEventListener('click', function () {
-        if (!this.value) return;
-        this.select();
-        try {
-          document.execCommand('copy');
-          // small ephemeral feedback
-          const orig = this.value;
-          const prev = this.className;
-          this.classList.add('copied');
-        } catch (e) {
-          // ignore
-        }
-      });
-
-  confirmBtn.addEventListener('click', function () {
-  const amount = parseFloat(document.getElementById('amount').value);
-  const duration = parseInt(document.getElementById('duration').value, 10);
-  const crypto = selectEl.value;
-
-  if (!amount || amount <= 0) {
-    alert('Please enter an amount to invest.');
-    return;
-  }
-
-  if (!duration) {
-    alert('Please select an investment duration.');
-    return;
-  }
+ 
+<script>
 document.addEventListener("DOMContentLoaded", () => {
+
   const tierSelect = document.getElementById("tier");
-  const tierRange = document.getElementById("tier-range");
   const amountInput = document.getElementById("amount");
+  const tierRangeText = document.getElementById("tier-range");
 
-  if (!tierSelect || !tierRange) return;
-
-  const tierConfig = {
+  const TIERS = {
     bronze: { min: 5000, max: 10000 },
     silver: { min: 10000, max: 25000 },
     gold: { min: 25000, max: 50000 },
-    platinum: { min: 100000, max: null }
+    platinum: { min: 100000, max: Infinity }
   };
 
   tierSelect.addEventListener("change", () => {
     const tier = tierSelect.value;
 
-    if (!tier || !tierConfig[tier]) {
-      tierRange.style.display = "none";
-      tierRange.textContent = "";
+    if (!TIERS[tier]) {
+      tierRangeText.textContent = "";
+      amountInput.removeAttribute("min");
+      amountInput.removeAttribute("max");
       return;
     }
 
-    const { min, max } = tierConfig[tier];
+    const { min, max } = TIERS[tier];
 
-    tierRange.style.display = "block";
-    tierRange.textContent = max
-      ? `Recommended investment: $${min.toLocaleString()} – $${max.toLocaleString()}`
-      : `Recommended investment: $${min.toLocaleString()} and above`;
+    // Show range text
+    tierRangeText.textContent =
+      max === Infinity
+        ? `Minimum investment: $${min.toLocaleString()}`
+        : `Allowed range: $${min.toLocaleString()} – $${max.toLocaleString()}`;
 
-    // Optional UX: auto-fill amount
-    if (amountInput) {
-      amountInput.value = min;
+    // Enforce range
+    amountInput.min = min;
+    amountInput.max = max === Infinity ? "" : max;
+
+    // Reset amount if out of range
+    if (amountInput.value) {
+      const value = Number(amountInput.value);
+      if (value < min || (max !== Infinity && value > max)) {
+        amountInput.value = "";
+      }
     }
   });
+
 });
-
-  // Save data for next page
-  sessionStorage.setItem('invest_amount', amount);
-  sessionStorage.setItem('invest_duration', duration);
-  sessionStorage.setItem('invest_crypto', crypto);
-
-  window.location.href = 'investplan.html';
-});
-
-      // init
-      updateForSelection();
-      selectEl.addEventListener('change', updateForSelection);
-
-      // accessibility: allow Enter key on address to copy
-      addressEl.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter') {
-          this.select();
-          try { document.execCommand('copy'); } catch (e) {}
-        }
-      });
-    })();
-  </script>
-
+</script>
 </body>
 </html>
