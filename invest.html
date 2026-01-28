@@ -35,7 +35,7 @@
           </p>
 
           <!-- INVEST FORM -->
-   <form id="investment-form" class="mb-3" action="investplan.html" method="GET">
+   <form id="invest-form" class="mb-3" action="investplan.html" method="GET">
             <div class="row mb-2">
               <div class="col-lg-4">
 <label for="tier"><strong>Select Tier</strong></label>
@@ -90,6 +90,23 @@
   </select>
 
   <small id="crypto-hint" class="hint-text"></small>
+</div>
+<!-- DEPOSIT DETAILS -->
+<div id="deposit-box" class="deposit-box" style="display:none;">
+  <p class="deposit-label">Deposit Address</p>
+
+  <div class="deposit-address">
+    <span id="deposit-address-text"></span>
+    <button type="button" id="copy-address">Copy</button>
+  </div>
+
+  <div class="qr-wrapper">
+    <img id="qr-code" alt="QR Code" />
+  </div>
+
+  <small class="deposit-warning">
+    Send only the selected cryptocurrency to this address.
+  </small>
 </div>
 
 
@@ -207,7 +224,51 @@ cryptoSelect.addEventListener("change", () => {
 
   cryptoHint.textContent = hints[crypto] || "";
 });
+/* =========================
+   DEPOSIT ADDRESS + QR
+========================= */
 
+const depositBox = document.getElementById("deposit-box");
+const addressText = document.getElementById("deposit-address-text");
+const qrCodeImg = document.getElementById("qr-code");
+const copyBtn = document.getElementById("copy-address");
+
+// Replace with REAL addresses later
+const ADDRESSES = {
+  BTC: "bc1qexamplebtcaddresshere",
+  ETH: "0xExampleEthereumAddressHere",
+  USDT: "0xExampleUSDTAddressHere",
+  LTC: "ltc1examplelitecoinaddress"
+};
+
+cryptoSelect.addEventListener("change", () => {
+  const crypto = cryptoSelect.value;
+
+  if (!crypto || !ADDRESSES[crypto]) {
+    depositBox.style.display = "none";
+    return;
+  }
+
+  const address = ADDRESSES[crypto];
+
+  // Show address
+  addressText.textContent = address;
+  depositBox.style.display = "block";
+
+  // Generate QR using Google Chart API
+  const qrData = encodeURIComponent(address);
+  qrCodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${qrData}`;
+});
+
+// Copy button
+copyBtn.addEventListener("click", () => {
+  navigator.clipboard.writeText(addressText.textContent);
+  copyBtn.textContent = "Copied ✓";
+
+  setTimeout(() => {
+    copyBtn.textContent = "Copy";
+  }, 2000);
+});
 
 </script>
 </body>
