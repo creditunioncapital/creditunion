@@ -74,37 +74,25 @@
 </div>
 </div>
 
-            <!-- Address & QR -->
-            <div class="row mb-2">
-              <div class="col-lg-4">
-                <label><strong>Deposit Address</strong></label>
-              </div>
-              <div class="col-lg-8">
-                <!-- readonly so user can copy -->
-                <input id="deposit-address" class="form-control" readonly value="">
-              </div>
-            </div>
+           
+          
+          <!-- CRYPTO PAYMENT METHOD -->
+<div class="form-group">
 
-            <div class="row mb-3">
-              <div class="col-lg-4">
-                <label><strong>QR Code</strong></label>
-              </div>
-              <div class="col-lg-8">
-                <div id="qrcode" style="padding:8px; background:#fff; display:inline-block;"></div>
-                <div style="margin-top:.5rem; color:#6c757d; font-size:.9rem;">
-                  Scan to copy the deposit address.
-                </div>
-              </div>
-            </div>
+  <label for="crypto">Pay With</label>
 
-            <div class="row">
-              <div class="col-lg-4"></div>
-              <div class="col-lg-8">
-                <!-- Confirm button text required by spec -->
-                <button id="confirm-btn" type="button" class="btn btn-primary" style="white-space:normal;">
-                  Click after depositing crypto
-                </button>
-                <a href="dashboard.html" class="btn btn-link" style="margin-left:10px;">Back to Dashboard</a>
+  <select id="crypto" name="crypto" required>
+    <option value="">Select cryptocurrency</option>
+    <option value="BTC">Bitcoin (BTC)</option>
+    <option value="ETH">Ethereum (ETH)</option>
+    <option value="USDT">Tether (USDT)</option>
+    <option value="LTC">Litecoin (LTC)</option>
+  </select>
+
+  <small id="crypto-hint" class="hint-text"></small>
+</div>
+
+
               </div>
             </div>
           </form>
@@ -193,6 +181,31 @@ durationSelect.addEventListener("change", () => {
   } else {
     durationSelect.setCustomValidity("");
   }
+});
+/* =========================
+   CRYPTO SELECTION
+========================= */
+
+const cryptoSelect = document.getElementById("crypto");
+const cryptoHint = document.getElementById("crypto-hint");
+
+// Optional: display network info or warning
+cryptoSelect.addEventListener("change", () => {
+  const crypto = cryptoSelect.value;
+
+  if (!crypto) {
+    cryptoHint.textContent = "";
+    return;
+  }
+
+  const hints = {
+    BTC: "Bitcoin network only",
+    ETH: "ERC-20 network",
+    USDT: "ERC-20 (Ethereum)",
+    LTC: "Litecoin network"
+  };
+
+  cryptoHint.textContent = hints[crypto] || "";
 });
 
 
