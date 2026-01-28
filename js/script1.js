@@ -201,6 +201,68 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+/* =========================
+   INVESTMENT PLAN ENGINE
+========================= */
+
+const amountInput = document.getElementById("amount");
+const durationInput = document.getElementById("duration");
+const planNameEl = document.getElementById("plan-name");
+const planDurationEl = document.getElementById("plan-duration");
+const planRateEl = document.getElementById("plan-rate");
+const planReturnEl = document.getElementById("plan-return");
+
+function calculatePlan(amount, months) {
+  let plan = {};
+  let rate = 0;
+
+  if (amount < 500) {
+    plan.name = "Starter Plan";
+    rate = 3;
+  } else if (amount < 5000) {
+    if (months < 6) {
+      plan.name = "Growth Plan";
+      rate = 6;
+    } else {
+      plan.name = "Growth Plus Plan";
+      rate = 8;
+    }
+  } else {
+    if (months < 12) {
+      plan.name = "Premium Plan";
+      rate = 10;
+    } else {
+      plan.name = "Elite Plan";
+      rate = 14;
+    }
+  }
+
+  const estimatedReturn = amount + (amount * rate / 100) * (months / 12);
+
+  return {
+    name: plan.name,
+    rate: rate + "% annually",
+    duration: months + " months",
+    total: estimatedReturn.toFixed(2)
+  };
+}
+
+function updateInvestmentPlan() {
+  const amount = Number(amountInput?.value || 0);
+  const months = Number(durationInput?.value || 0);
+
+  if (amount <= 0 || months <= 0) return;
+
+  const plan = calculatePlan(amount, months);
+
+  planNameEl.textContent = plan.name;
+  planRateEl.textContent = plan.rate;
+  planDurationEl.textContent = plan.duration;
+  planReturnEl.textContent = `$${plan.total}`;
+}
+
+amountInput?.addEventListener("input", updateInvestmentPlan);
+durationInput?.addEventListener("change", updateInvestmentPlan);
   /* =========================
      TRANSFER BUTTON → SIDEBAR TREEVIEW (WITH AUTO-FOCUS)
   ========================= */
