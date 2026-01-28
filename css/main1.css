@@ -1093,3 +1093,13 @@ body.page-loading .skeleton-card {
     font-size: 13px;
   }
 }
+
+.investment-result {
+  border-left: 4px solid #007d81;
+  background: linear-gradient(135deg, #ffffff, #f7fbfb);
+}
+
+.investment-result span {
+  color: #0b1c2d;
+  font-weight: 600;
+}
