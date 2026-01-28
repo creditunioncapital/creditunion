@@ -63,7 +63,7 @@
 </div>
                                                                                                         
     <div class="row mb-2">
-<div class="col-lg-5">
+<div class="col-lg-4">
   <label for="duration"><strong>Investment Duration</strong></label>
   <select id="duration" name="duration" required class="form-control">
     <option value="">Select duration</option>
@@ -77,11 +77,12 @@
            
           
           <!-- CRYPTO PAYMENT METHOD -->
-<div class="form-group">
+<div class="row mb-2">
+<div class="row mb-2">
 
-  <label for="crypto">Pay With</label>
+  <label for="crypto"><strong>Pay With</strong></label>
 
-  <select id="crypto" name="crypto" required>
+  <select id="crypto" class="form-control" name="crypto" required>
     <option value="">Select cryptocurrency</option>
     <option value="BTC">Bitcoin (BTC)</option>
     <option value="ETH">Ethereum (ETH)</option>
@@ -90,6 +91,7 @@
   </select>
 
   <small id="crypto-hint" class="hint-text"></small>
+</div>
 </div>
 <!-- DEPOSIT DETAILS -->
 <div id="deposit-box" class="deposit-box" style="display:none;">
