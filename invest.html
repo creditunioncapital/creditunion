@@ -38,7 +38,7 @@
           <form id="invest-form" class="mb-3" onsubmit="return false;">
             <div class="row mb-2">
               <div class="col-lg-4">
-<label for="tier">Select Tier</label>
+<label for="tier"><strong>Select Tier</strong></label>
   <select id="tier" required>
     <option value="">Choose a tier</option>
     <option value="bronze">Bronze</option>
@@ -48,14 +48,15 @@
   </select>
 
   <!-- Tier range display -->
-  <p id="tier-range" class="tier-range"></p>
+  <p id="tier-range" class="form-control"></p>
 
   <!-- Amount -->
-  <label for="amount">Investment Amount ($)</label>
+  <label for="amount"><strong>Investment Amount ($)</strong></label>
   <input
     type="number"
     id="amount"
     placeholder="Enter amount"
+    class="form-control"
     required
   />
 </div>
