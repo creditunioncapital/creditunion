@@ -52,6 +52,43 @@
   </footer>
 
    <script src="/js/script1.js"></script>
+<script>
+(function () {
+  const amount = Number(sessionStorage.getItem('invest_amount'));
+  const duration = Number(sessionStorage.getItem('invest_duration'));
+  const crypto = sessionStorage.getItem('invest_crypto');
+
+  // If user opens page directly
+  if (!amount || !duration || !crypto) {
+    window.location.href = 'invest.html';
+    return;
+  }
+
+  let planName = '';
+  let rate = 0;
+
+  if (amount < 500) {
+    planName = 'Starter Plan';
+    rate = 3;
+  } else if (amount < 5000) {
+    planName = duration < 6 ? 'Growth Plan' : 'Growth Plus Plan';
+    rate = duration < 6 ? 6 : 8;
+  } else {
+    planName = duration < 12 ? 'Premium Plan' : 'Elite Plan';
+    rate = duration < 12 ? 10 : 14;
+  }
+
+  const estimatedReturn =
+    amount + (amount * rate / 100) * (duration / 12);
+
+  // Inject into DOM
+  document.getElementById('plan-name').textContent = planName;
+  document.getElementById('plan-duration').textContent = duration + ' months';
+  document.getElementById('plan-rate').textContent = rate + '% annually';
+  document.getElementById('plan-return').textContent =
+    `$${estimatedReturn.toFixed(2)} (${crypto})`;
+})();
+</script>
 
 </body>
 </html>
