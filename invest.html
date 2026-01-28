@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+no<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -143,13 +143,10 @@
   <script src="/js/script1.js"></script>
 
   <!-- Page script: address & QR handling (placeholder addresses) -->
- 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
+ <script>
   const tierSelect = document.getElementById("tier");
   const amountInput = document.getElementById("amount");
-  const tierRangeText = document.getElementById("tier-range");
+  const rangeText = document.getElementById("tier-range");
 
   const TIERS = {
     bronze: { min: 5000, max: 10000 },
@@ -158,38 +155,49 @@ document.addEventListener("DOMContentLoaded", () => {
     platinum: { min: 100000, max: Infinity }
   };
 
+  /* =========================
+     TIER CHANGE (already working)
+  ========================= */
   tierSelect.addEventListener("change", () => {
     const tier = tierSelect.value;
 
     if (!TIERS[tier]) {
-      tierRangeText.textContent = "";
-      amountInput.removeAttribute("min");
-      amountInput.removeAttribute("max");
+      rangeText.textContent = "";
+      amountInput.value = "";
       return;
     }
 
     const { min, max } = TIERS[tier];
 
-    // Show range text
-    tierRangeText.textContent =
+    rangeText.textContent =
       max === Infinity
-        ? `Minimum investment: $${min.toLocaleString()}`
-        : `Allowed range: $${min.toLocaleString()} – $${max.toLocaleString()}`;
+        ? `$${min.toLocaleString()} and above`
+        : `$${min.toLocaleString()} – $${max.toLocaleString()}`;
 
-    // Enforce range
     amountInput.min = min;
     amountInput.max = max === Infinity ? "" : max;
-
-    // Reset amount if out of range
-    if (amountInput.value) {
-      const value = Number(amountInput.value);
-      if (value < min || (max !== Infinity && value > max)) {
-        amountInput.value = "";
-      }
-    }
+    amountInput.value = min;
   });
 
-});
+  /* =========================
+     ✅ STEP 1 GOES HERE
+     LIVE AMOUNT VALIDATION
+  ========================= */
+  amountInput.addEventListener("input", () => {
+    const tier = tierSelect.value;
+    if (!TIERS[tier]) return;
+
+    const { min, max } = TIERS[tier];
+    const value = Number(amountInput.value);
+
+    if (value < min || (max !== Infinity && value > max)) {
+      amountInput.setCustomValidity(
+        "Amount does not match selected tier"
+      );
+    } else {
+      amountInput.setCustomValidity("");
+    }
+  });
 </script>
 </body>
 </html>
