@@ -1,0 +1,67 @@
+..deposit-box {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f7fbfb;
+  border: 1px solid #dce6ea;
+}
+
+.deposit-label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.deposit-address {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  font-size: 13px;
+  word-break: break-all;
+}
+
+.deposit-address button {
+  background: #007d81;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.deposit-address button:hover {
+  background: #00666a;
+}
+
+.qr-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.deposit-warning {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #6b7c93;
+}
+  background: #00666a;
+}
+
+.qr-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.deposit-warning {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #6b7c93;
+}
