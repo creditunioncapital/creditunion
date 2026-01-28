@@ -963,3 +963,133 @@ body.page-loading .skeleton-card {
 .account-action-btn.save:hover {
   box-shadow: 0 8px 20px rgba(255, 179, 0, 0.226);
 }
+
+/* =========================
+   INVEST PAGE STYLING
+========================= */
+
+/* Container card consistency */
+.transaction-card {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Headings */
+.transaction-card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 22px;
+  color: #0b1c2d;
+}
+
+/* Muted text */
+.transaction-card .muted,
+.transaction-card .text-muted {
+  color: #6b7c93;
+  font-size: 14px;
+}
+
+/* Fake grid (Bootstrap-free) */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.row + .row {
+  margin-top: 12px;
+}
+
+/* Label column */
+.col-lg-4 {
+  flex: 0 0 160px;
+  font-size: 14px;
+  color: #0b1c2d;
+}
+
+/* Input column */
+.col-lg-8 {
+  flex: 1;
+}
+
+/* Inputs & selects */
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  font-size: 14px;
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #007d81;
+  box-shadow: 0 0 0 2px rgba(0, 125, 129, 0.15);
+}
+
+/* Readonly field */
+.form-control[readonly] {
+  background: #f7fbfb;
+  cursor: pointer;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+/* Primary button */
+.btn-primary {
+  background: #007d81;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #00666a;
+}
+
+/* Link button */
+.btn-link {
+  background: transparent;
+  color: #007d81;
+  padding: 0;
+}
+
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* QR container alignment */
+#qrcode {
+  border-radius: 8px;
+  border: 1px solid #e5e9f0;
+}
+
+/* HR spacing */
+.transaction-card hr {
+  border: none;
+  border-top: 1px solid #e5e9f0;
+  margin: 18px 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .col-lg-4 {
+    flex: none;
+    font-size: 13px;
+  }
+}
