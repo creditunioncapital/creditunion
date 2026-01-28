@@ -38,6 +38,23 @@
           <form id="invest-form" class="mb-3" onsubmit="return false;">
             <div class="row mb-2">
               <div class="col-lg-4">
+<!-- Investment Tier -->
+<div class="row">
+  <div class="col-lg-4">
+    <label for="tier">Investment Tier</label>
+  </div>
+  <div class="col-lg-8">
+    <select id="tier" class="form-control">
+      <option value="">Select Tier</option>
+      <option value="bronze">Bronze</option>
+      <option value="silver">Silver</option>
+      <option value="gold">Gold</option>
+      <option value="platinum">Platinum</option>
+    </select>
+
+    <small id="tier-range" class="text-muted" style="display:none;"></small>
+  </div>
+</div>
                 <label><strong>Amount</strong></label>
               </div>
               <div class="col-lg-8">
@@ -193,6 +210,52 @@
     alert('Please select an investment duration.');
     return;
   }
+/* =========================
+   INVESTMENT TIER GUIDE
+========================= */
+
+const tierSelect = document.getElementById("tier");
+const tierRange = document.getElementById("tier-range");
+
+const tierConfig = {
+  bronze: {
+    label: "Bronze",
+    min: 5000,
+    max: 10000
+  },
+  silver: {
+    label: "Silver",
+    min: 10000,
+    max: 25000
+  },
+  gold: {
+    label: "Gold",
+    min: 25000,
+    max: 50000
+  },
+  platinum: {
+    label: "Platinum",
+    min: 100000,
+    max: null
+  }
+};
+
+tierSelect.addEventListener("change", () => {
+  const tier = tierSelect.value;
+
+  if (!tier || !tierConfig[tier]) {
+    tierRange.style.display = "none";
+    tierRange.textContent = "";
+    return;
+  }
+
+  const { min, max } = tierConfig[tier];
+
+  tierRange.style.display = "block";
+  tierRange.textContent = max
+    ? `Recommended investment: $${min.toLocaleString()} – $${max.toLocaleString()}`
+    : `Recommended investment: $${min.toLocaleString()} and above`;
+});
 
   // Save data for next page
   sessionStorage.setItem('invest_amount', amount);
