@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter PIN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video autoplay muted loop playsinline id="background-video">
+        <source src="back.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="pin-container">
+       
+        <div class="pin-box">
+            <h2>Enter Your PIN</h2>
+            <form action="#" method="get"> <!-- This can redirect to the main app page -->
+                <div class="input-group">
+                    <input type="password" id="pin" name="pin" required placeholder="----" maxlength="4" readonly>
+                </div>
+            </form>
+            <div id="loader" class="loader"></div>
+            <div id="keypad">
+                <button class="keypad-btn">1</button>
+                <button class="keypad-btn">2</button>
+                <button class="keypad-btn">3</button>
+                <button class="keypad-btn">4</button>
+                <button class="keypad-btn">5</button>
+                <button class="keypad-btn">6</button>
+                <button class="keypad-btn">7</button>
+                <button class="keypad-btn">8</button>
+                <button class="keypad-btn">9</button>
+                <button class="keypad-btn" data-action="clear">Clear</button>
+                <button class="keypad-btn">0</button>
+                <button class="keypad-btn" data-action="backspace">&#9003;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="pin-handler.js" defer></script>
+</body>
+</html>
