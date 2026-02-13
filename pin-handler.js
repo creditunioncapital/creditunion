@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const pinRedirects = {
                 '': 'dashboard.html',
                 '2143': 'tim/dashboard.html',
-                '2389': 'wright/dashboard.html',
+                '2389': 'stef/dashboard.html',
                 '9999': 'admin.html'
             };
 
@@ -60,5 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
 
 
