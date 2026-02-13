@@ -288,6 +288,8 @@ html {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+    margin-top: 50px;
+
 
 }
 
@@ -665,8 +667,10 @@ margin-left: 24px;
 background: linear-gradient(172deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 56%, rgba(0, 212, 255, 1) 100%);
   color: #fff;
   overflow: hidden;
+  position: fixed;
+  top: 0;
   padding: 10px 10px 10px 10px;
-  margin-top: 20px;
+  z-index: 1000;
   white-space: nowrap;
 }
 
@@ -685,3 +689,4 @@ background: linear-gradient(172deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 56%
 .announcement-bar:hover .scrolling-text {
   animation-play-state: paused;
 }
+
