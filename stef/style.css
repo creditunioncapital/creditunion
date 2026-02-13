@@ -482,11 +482,13 @@ html {
   padding: 25px;
   border-radius: 20px;
   margin-top: -20px;
-  position: relative;
+  position: sticky;
+  top: 0;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   color: white;
   opacity: 0;
+  z-index: 1000;
   animation: fadeInUp 0.7s ease-out 0.5s forwards;
 }
 
