@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html, body {
+            overflow: auto;
+            height: auto;
+        }
+        body {
+            background: linear-gradient(135deg, #020524, #203a43, #2d2c64);
+            background-attachment: fixed;
+            color: white;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+ <header class="top-bar">
+    <div class="header-container">
+        <div class="header-profile">
+            <img src="profilepic.jpg" alt="Profile" class="profile-image">
+            <div class="header-text">
+                <h1 class="user-name">Stephanie Gisele</h1>
+                <p class="welcome-msg">Welcome back!</p>
+            </div>
+        </div>
+    </div>
+ </header>
+
+
+    <div class="dashboard-container">
+        
+
+
+        
+        <div class="bank-card">
+            <div class="card-top">
+                <h2 class="welcome-text"> </h2>
+            </div>
+            <div class="balance-label">Total Balance</div>
+            <div class="balance-amount">$45,450.00</div>
+            <div class="card-details">
+            </div>
+        </div>
+
+        <div class="dashboard-card">
+            <ul class="transactions-list">      <h3 class="dashboard-title">Recent Transactions</h3>  </ul>
+                <div class="white-line"></div>
+
+            <ul class="transactions-list">
+                
+                <li class="transaction-item">
+                    <div class="t-info"><h4>Divorce Grant</h4><span class="t-date">3 Jan 2026</span></div>
+                    <div class="t-amount positive">+$43,500.00</div>
+                </li>
+
+                      <li class="transaction-item">
+                    <div class="t-info"><h4>Unused Retainer</h4><span class="t-date">14 Dec 2025</span></div>
+                    <div class="t-amount positive">+$400.00</div>
+                </li>
+
+                      <li class="transaction-item">
+                    <div class="t-info"><h4>VAT</h4><span class="t-date">1 Dec 2025</span></div>
+                    <div class="t-amount negative">+$100.00</div>
+                </li>
+
+                      <li class="transaction-item">
+                    <div class="t-info"><h4>Unused Retainer</h4><span class="t-date">25 Nov 2025</span></div>
+                    <div class="t-amount positive">+$130.00</div>
+                </li>
+
+                      <li class="transaction-item">
+                    <div class="t-info"><h4>VAT</h4><span class="t-date">11 Nov 2025</span></div>
+                    <div class="t-amount negative">+$43.00</div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <button class="nav-btn active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4h-4Z"/></svg>
+            <span>Wallet</span>
+        </button>
+        <button class="nav-btn" onclick="location.href='transfer.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span>Transfer</span>
+        </button>
+        <button class="nav-btn" onclick="location.href='loan.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Loan</span>
+        </button>
+        <button class="nav-btn" onclick="location.href='profile.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Profile</span>
+        </button>
+    </div>
+
+    <script>
+        function logout() {
+            localStorage.removeItem('userPin');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
