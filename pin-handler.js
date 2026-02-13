@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Define where different PINs should redirect.
             const pinRedirects = {
                 '': 'dashboard.html',
-                '1234': 'tim/index.html',
+                '1234': 'tim/tim-kennedy.html',
                 '5678': 'wright-kennedy.html',
                 '9999': 'admin.html'
             };
@@ -60,3 +60,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
