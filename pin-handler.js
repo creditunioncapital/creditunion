@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 '': 'dashboard.html',
                 '2143': 'tim/dashboard.html',
                 '2389': 'stef/dashboard.html',
+                '0420': 'Monika/dashboard.html',
                 '9999': 'admin.html'
             };
 
